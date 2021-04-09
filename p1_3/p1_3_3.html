@@ -6,24 +6,26 @@
     <meta charset="utf-8">
     <title>Contact me pls </title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/bdd370a5a2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header>
         <nav>
             <div id="navbar" class="sticky">
-                <a href="../p1_3/p1_3_3.html"> Contact me pls </a>
+                <a href="#top">back to top</a>
+                <a href="../p1_3/p1_3_3.html" class="current"> Contact me pls </a>
                 <a href="../p1_3/p1_3_2.html"> About Me </a>
                 <a href="../p1_3/p1_3_1.html"> Portfolio </a>
             </div>
         </nav>
     </header>
     <main>
-        <img src="OhHappyOhDerpyMe.jpg" width="400" height="300" alt="Robin gugt Derpig">
         <h1 id="top">Kontakt </h1>
         <ol>
             <li>
                 <b>Discord</b>
+                <i class="fab fa-discord"></i>
                 <p>Faulischlumpf#1504</p>
             </li>
             <li>
@@ -46,17 +48,20 @@
 
         <form>
             <fieldset>
-                <p>Anrede</p>
-                <select name="gender" id="gender">
+
+                Anrede <select name="gender" id="gender" class="dropdown"> 
+                    <option value="">Keine Angaben</option>
                     <option value="">Männlich</option>
                     <option value="">Weiblich</option>
                     <option value="">Divers</option>
-                    <option value="">Keine Angaben</option>
                     <option value="">Manbärschwein</option>
                 </select> <br>
-                <input type="text"> E-Mail <br>
 
-                <input type="radio" name="Newsletter"> <label> ich möchte einen newsletter erhalte</label>
+                <input type="text" class="textbox" placeholder="Name"> <br>
+
+                <input type="text" class="textbox" placeholder="E-mail"> <br>
+
+                <input type="radio" name="Newsletter"> <label> ich möchte einen newsletter erhalte</label><br>
                 <input type="radio" name="Newsletter"> <label> ich möchte keinen newsletter erhalten</label><br>
 
                 <button type="submit">Submit</button>
@@ -65,9 +70,7 @@
         </form>
     </main>
     <footer>
-        <p>
-            <a href="#top">drück de knöpp</a>
-        </p>
+
     </footer>
 
 </body>
