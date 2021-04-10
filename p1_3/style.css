@@ -92,3 +92,29 @@ button {
     width: auto;
     height: auto;
 }
+
+.steam {
+    color: #07193e;
+}
+.battlenet{
+    color: #017aff;
+}
+.discord{
+    color: #7188d8;
+}
+.headerImage {
+    background-size: cover;
+    z-index: -1;
+    background-image: url(MizutsuneInABox.jpg);
+    width: 800px;
+    height: 580px;
+    margin-bottom: 50px;
+    
+}
+.headerLine{
+    padding: 90px 0px 0px 370px;
+}
+#discord{
+    display: inline;
+    padding-left:350px;
+}
