@@ -1,0 +1,169 @@
+.flexbox-container {
+    display: flex;
+}
+
+.flexbox-container.flexbox-navbar{
+    flex-flow: column wrap;
+}
+.flexbox-container.flexbox-head{
+    flex-flow: column wrap;
+}
+
+.flexbox-container.flexbox-text{
+    flex-flow: column wrap;
+}
+
+.flexbox-container.flexbox-table{
+    flex-flow: column wrap;
+}
+
+.flexbox-container.flexbox-img{
+    flex-flow: column wrap;
+    justify-items: center;
+    align-items: center;
+}
+.flexbox-container.flexbox-form {
+    flex-flow: column wrap;
+    align-items: center;
+    justify-items: center;
+}
+
+.headerImage {
+    background-size: cover;
+    z-index: -1;
+    background-image: url(MizutsuneInABox.jpg);
+    width: 800px;
+    height: 580px;
+    margin-bottom: 50px;
+    
+}
+.headerLine{
+    padding: 90px 0px 0px 370px;
+}
+
+
+h1 {
+    color: rgb(10, 15, 78);
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h2 {
+    color:rgb(10, 15, 78);
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h3 {
+    color:rgb(10, 15, 78);
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body {
+    padding-top: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 800px;
+    margin: 16px auto 20px auto;
+    background-image: url("bg.png");
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+p {
+    line-height: 136%;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #7866ef; width: 800px;
+
+
+}
+#navbar a {
+    float: right;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    color: seashell;
+}
+
+#navbar a:hover{
+    color:black;
+    background-color: rgb(202, 160, 44);
+    border-radius: 8px;
+}
+#navbar a.current{
+    color:black;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 3px;
+    margin: auto;
+}
+th{
+    background-color:rgb(255,0,0);
+    color:seashell;
+}
+ol{
+    list-style-type: none;
+    padding: 0em;
+}
+
+form {
+
+    border: 1px solid black;
+    text-align: left;
+    background-color: #7866ef;
+    padding: 5px;
+    line-height: 136%;
+    color: seashell;
+}
+input {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+select {
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+}
+.dropdown{
+    width: 207px;
+}
+.textbox{
+    width: 250px;
+}
+button {
+    padding: auto;
+    width: auto;
+    height: auto;
+}
+
+.steam {
+    color: #07193e;
+}
+.battlenet{
+    color: #017aff;
+}
+.discord{
+    color: #7188d8;
+}
+
+#discord{
+    display: inline;
+    padding-left:350px;
+}

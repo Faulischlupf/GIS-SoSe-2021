@@ -1,21 +1,39 @@
 # GIS-SoSe-2021
 GIS Seminar
-Feeling cute today idk might program later
+Feeling cute today idk might programm later
 
-In dieser Aufgabe wird die Portfolio-Website (welche aus den drei HTML Dokumenten/Seiten besteht) aus der Aufgabe aus dem Unterkapitel P1.2 mit CSS ergänzt, um verschiedene Gestaltungsaspekte zu realisieren.
 
-Erstellen Sie für diese Aufgabe wiederum einen neuen Unterordner (z.B. /Aufgabe-1.3) in Ihrem bestehenden GIT-Repository und erstellen dort eine Kopie Ihrer Portfolio-Webseite aus der vorherigen Aufgabe, an dem Sie nun weiterarbeiten werden.
 
-Gestalten Sie ihre Webseite nach freien Stücken, beachten Sie dabei unbedingt aber diese Anmerkungen! Versuchen Sie, ihr Design möglichst ansprechend zu gestalten. Als mögliche Vorlage können Sie diese Designs hinzuziehen (dies ist nur ein Vorschlag, Sie können ebenso ein eigenes Design entwickeln solange es den Anmerkungen folgt).
-Scheuen Sie sich nicht vor strukturellen Änderungen ihres HTML Codes, um das Design besser umsetzen zu können. HTML und CSS müssen eng zusammenarbeiten um das gewünschte Ergebnis einfach und effizient zu erreichen.
+In dieser Aufgabe erweitern Sie wiederum Ihre Portofolie-Webseite aus der vorherigen Aufgabe P1.3.
+Beachten Sie für diesen letzten Schritt folgende Details:
 
-Das Grafikelement für den geforderten Hintergrund finden sie hier.
 
-Beachten Sie zusätzlich folgende Details:
+verwenden Sie mindestens 6 unterschiedliche komplexe Selektoren
 
-verwenden Sie zur Umsetzung des CSS ein extern eingebundenes Stylesheet (kein inline oder style-Element)
-jeder der drei Haupt-Selektoren (Element, ID, Klasse) soll mindestens zweimal vorkommen
-das Box-Modell soll mindestens einmal angewandt werden
-Es bietet sich wahrscheinlich an, für alle drei Seiten die selbe Stylesheetdatei zu verwenden, dies ist aber kein muss (denn wie immer beim Programmieren gilt: wer Code kopiert, macht irgendwas falsch).
 
-Achten Sie auch hier weiterhin auf die Konformität mit den Regeln des W3C und nutzen Sie ggf. den Validator.
+bauen Sie CSS Transitionen und/oder Animationen ein
+
+
+die Seiten sollen sich responsiv an die Bildschirmdimensionen anpassen (siehe unten)
+
+
+sie ist an mindestens 3 Bildschirmgrößen angepasst: Desktop (> 1024px), Tablet (600 - 1024px) und Mobil (< 600 px)
+in der kleinsten Ansicht sollten die Komponenten am besten die gesamte Bildschirmbreite einnehmen
+
+
+verwenden Sie mindestens 2 Media-Queries
+
+
+verwenden Sie passendes Flussverhalten – bevorzugt Flexible Box (flexbox) oder Grid Layout.
+
+
+stellen Sie außerdem natürlich sicher, dass das Hauptmenü und der Header allgemein auf allen Bildschirmgrößen gut verwendbar ist (implementieren Sie ggf. ein Burger-Menu)
+
+
+Wir empfehlen Ihnen Ihre Seite so zu entwickeln, dass entweder Mobil oder Desktop die Standardansicht sind, und Sie die relevanten Auszeichnungen für die anderen beiden 
+
+
+Ansichten überschreiben. Nochmal zur Erinnerung: Wer Code kopiert, macht irgendetwas falsch.
+
+
+In vielen Browsern können Sie automatisch verschiedene Bildschirmgrößen testen. Schauen Sie in den Entwicklertools nach.
