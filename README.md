@@ -15,8 +15,6 @@ bauen Sie CSS Transitionen und/oder Animationen ein
 
 
 die Seiten sollen sich responsiv an die Bildschirmdimensionen anpassen (siehe unten)
-
-
 sie ist an mindestens 3 Bildschirmgrößen angepasst: Desktop (> 1024px), Tablet (600 - 1024px) und Mobil (< 600 px)
 in der kleinsten Ansicht sollten die Komponenten am besten die gesamte Bildschirmbreite einnehmen
 

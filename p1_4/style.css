@@ -7,6 +7,8 @@
 }
 .flexbox-container.flexbox-head{
     flex-flow: column wrap;
+    align-items: center;
+
 }
 
 .flexbox-container.flexbox-text{
@@ -28,14 +30,24 @@
     justify-items: center;
 }
 
+header{
+    height: 600px;
+    max-width: 800px;
+    margin:auto;
+
+}
+
 .headerImage {
-    background-size: cover;
-    z-index: -1;
+    margin:auto;
+    background-repeat: no-repeat;
     background-image: url(MizutsuneInABox.jpg);
-    width: 800px;
-    height: 580px;
+    width: 100%;
+    height: 100%;
     margin-bottom: 50px;
+    background-size: 100%;
+    max-width: 800px;
     
+
 }
 .headerLine{
     padding: 90px 0px 0px 370px;
@@ -67,9 +79,8 @@ h3 {
 }
 
 body {
-    padding-top: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    width: 800px;
+    width: 100%;
     margin: 16px auto 20px auto;
     background-image: url("bg.png");
     text-align: center;
@@ -81,8 +92,9 @@ p {
 
 #navbar {
     overflow: hidden;
-    background-color: #7866ef; width: 800px;
-
+    background-color: #7866ef;
+    width: 100%;
+    max-width: 800px;
 
 }
 #navbar a {
@@ -92,6 +104,7 @@ p {
     padding: 14px;
     text-decoration: none;
     color: seashell;
+
 }
 
 #navbar a:hover{
@@ -166,4 +179,17 @@ button {
 #discord{
     display: inline;
     padding-left:350px;
+}
+@media screen and (max-width:600px){
+    .headerImage{
+        width: 100%;
+        
+    }
+    .headerLine{
+        width: 40%
+    }  
+    
+}
+@media screen and (max-width:1024px){
+    
 }
