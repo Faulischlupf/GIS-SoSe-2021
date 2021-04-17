@@ -29,9 +29,7 @@ stellen Sie außerdem natürlich sicher, dass das Hauptmenü und der Header allg
 
 
 Wir empfehlen Ihnen Ihre Seite so zu entwickeln, dass entweder Mobil oder Desktop die Standardansicht sind, und Sie die relevanten Auszeichnungen für die anderen beiden 
-
-
 Ansichten überschreiben. Nochmal zur Erinnerung: Wer Code kopiert, macht irgendetwas falsch.
-
-
 In vielen Browsern können Sie automatisch verschiedene Bildschirmgrößen testen. Schauen Sie in den Entwicklertools nach.
+
+Form Reworken
