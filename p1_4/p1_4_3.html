@@ -48,7 +48,6 @@
                 <a href="https://www.blizzard.com/de-de/" class="battlenet"><i class="fab fa-battle-net fa-3x"></i></a>
                 <p>Faulischlupf#2172</p>
             </li>
-
         </ol>
         </div>
         <div class="flexbox-container flexbox-pdf">
@@ -56,29 +55,36 @@
 
             <iframe src="../p1_3/Snarky_the_Incinerator.pdf"></iframe>
         </div>
+        <div class="topMargin"> </div>
+        <h3> Newsletter </h3>
         <form>
             <fieldset class="flexbox-container flexbox-form">
-                <div class="flexbox-container flexbox-form-row">
-                    Anrede <select name="gender" id="gender" class="dropdown">
-                        <option value="">Keine Angaben</option>
-                        <option value="">Männlich</option>
-                        <option value="">Weiblich</option>
-                        <option value="">Divers</option>
-                        <option value="">Manbärschwein</option>
-                    </select> <br>
-                </div>
+
+                <label for="gender "> Anrede </label>
+                <select name="gender" id="gender" class="dropdown">
+                    <option value="">Keine Angaben</option>
+                    <option value="">Männlich</option>
+                    <option value="">Weiblich</option>
+                    <option value="">Divers</option>
+                    <option value="">Manbärschwein</option>
+                </select> <br>
+
                 <input type="text" class="textbox" placeholder="Name"> <br>
                 <input type="text" class="textbox" placeholder="E-mail"> <br>
-                <input type="radio" name="Newsletter"> <label> ich möchte einen newsletter erhalte</label><br>
-                <input type="radio" name="Newsletter"> <label> ich möchte keinen newsletter erhalten</label><br>
+                <div>
+                    <input type="radio" name="Newsletter"> <label> ich möchte den Monatlichen Newsletter
+                        erhalte</label><br>
+                </div>
+                <div>
+                    <input type="radio" name="Newsletter"> <label> ich möchte den Jährlichen Newsletter
+                        erhalten</label><br>
+                </div>
                 <button type="submit">Submit</button>
             </fieldset>
         </form>
     </main>
     <footer>
-
     </footer>
-
 </body>
 
 </html>

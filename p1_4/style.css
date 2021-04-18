@@ -20,6 +20,8 @@
 
 .flexbox-container.flexbox-table {
     flex-flow: column wrap;
+    justify-items: center;
+    align-items: center;
 }
 
 .flexbox-container.flexbox-img {
@@ -43,6 +45,7 @@
 .flexbox-container.flexbox-form {
     flex-flow: column nowrap;
     align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .flexbox-container.flexbox-form.flexbox-form-row {
@@ -114,15 +117,77 @@ body {
     background-image: url("bg.png");
     text-align: center;
     padding: 10px 0 0 0;
+    max-width: 800px;
 }
-#Robin{
+
+a {
+    transition: all 500ms;
+}
+
+a:hover {
+    transform: rotate(360deg);
+}
+
+/*id elements*/
+
+#Robin {
     max-width: 40%;
     width: 100%;
 }
 
-#Robin>img{
-width: inherit;
-height: inherit;
+#Robin>img {
+    width: inherit;
+    height: inherit;
+}
+
+#Crusader {
+    max-width: 300px;
+    width: 100%;
+}
+
+#Crusader>img {
+    width: inherit;
+    height: inherit;
+}
+
+#ClassSprites {
+    max-width: 400px;
+    width: 100%;
+}
+
+#ClassSprites>img {
+    width: inherit;
+    height: inherit;
+}
+
+#BuildCard {
+    max-width: 800px;
+    width: 100%;
+}
+
+#BuildCard>img {
+    width: inherit;
+    height: inherit;
+}
+
+#Video {
+    max-width: 600px;
+    width: 100%;
+}
+
+#Video>video {
+    width: inherit;
+    height: inherit;
+}
+
+#Table {
+    width: 100%;
+    max-width: 800%;
+}
+
+#Table table {
+    width: inherit;
+    height: inherit;
 }
 
 /*Navbar*/
@@ -141,12 +206,14 @@ height: inherit;
     padding: 14px;
     text-decoration: none;
     color: seashell;
+    transition: font-size 500ms;
 }
 
 #navbar a:hover {
     color: black;
     background-color: rgb(202, 160, 44);
     border-radius: 8px;
+    font-size: 110%;
 }
 
 #navbar a.current {
@@ -178,40 +245,37 @@ ol {
 
 /*Form*/
 
-form {
-    border: 1px solid black;
-    text-align: left;
-    background-color: #7866ef;
-    line-height: 136%;
-    color: seashell;
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
+.topMargin {
+    margin-top: 70px;
 }
 
-input {
-    padding: 5px;
-    border-radius: 5px;
+fieldset {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+label {
+    color: rgb(10, 15, 78);
 }
 
 select {
-    padding: 5px;
-    margin: 10px;
+    padding: 5px 3px 5px 3px;
     border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
 }
 
-.dropdown {
-    width: 207px;
-}
-
-.textbox {
-    width: 250px;
+input[type=text] {
+    padding: 5px 3px 5px 3px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
 }
 
 button {
-    padding: auto;
-    width: auto;
-    height: auto;
+    margin: 10px 0 5px;
+    border-radius: 8px;
+    padding: 3px 6px 3px 6px;
 }
 
 /*Icons*/
@@ -230,7 +294,7 @@ button {
 
 #discord {
     display: inline;
-    padding-left: 100%;
+    margin-left: 100%;
 }
 
 /*Tablet*/
@@ -238,15 +302,6 @@ button {
 @media screen and (max-width:1024px) {
     h1 {
         font-size: 150%;
-    }
-    h2 {
-        font-size: 100%;
-    }
-    h3 {
-        font-size: 80%;
-    }
-    p {
-        font-size: 80%;
     }
     .headerImage {
         width: 100%;
@@ -264,22 +319,25 @@ button {
         width: 100%;
         height: 600px;
     }
+    #Sprite {
+        height: 150px;
+    }
 }
 
 /*Mobil*/
 
 @media screen and (max-width:600px) {
     h1 {
-        font-size: 100%;
+        font-size: 120%;
     }
     h2 {
-        font-size: 80%;
+        font-size: 100%;
     }
     h3 {
-        font-size: 60%;
+        font-size: 80%;
     }
     p {
-        font-size: 60%;
+        font-size: 80%;
     }
     .headerImage {
         width: 100%;
@@ -303,5 +361,15 @@ button {
     .flexbox-container.flexbox-pdf iframe {
         width: 100%;
         height: 500px;
+    }
+    #Sprite {
+        height: 100px;
+    }
+    #Table th {
+        font-size: 70%;
+    }
+    #Table td {
+        font-size: 70%;
+        padding: 0px;
     }
 }
