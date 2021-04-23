@@ -158,45 +158,75 @@ function leapyears() {
         }
     }
 }
-/*
-f) Schreiben Sie eine Funktion leapyears welche alle Schlatjahre von 1900 bis heute auf der Konsole ausgibt. Ein Jahr ist ein Schaltjahr,
- wenn die Jahreszahl durch 4, aber nicht durch 100 teilbar ist. Sollte die Jahreszahl durch 400 teilbar sein, handelt es sich dennoch um ein Schaltjahr.
-*/
-/*
-a) Schreiben Sie eine Schleife welche auf der Konsole folgende sieben Zeilen ausgibt:
-
-#
-##
-###
-####
-#####
-######
-#######
-Hinweis: die Länge eines strings kann über stringname.length abgefragt werden.
-
-b) Schreiben Sie ein Programm welches auf der Konsole alle Zahlen von 1 bis 100 ausgibt. Dabei gibt es zwei Ausnahmen: Ist die Zahl durch 3 teilbar, geben Sie statt der Zahl Fizz aus. Ist sie durch 5 (und nicht durch 3) teilbar, geben sie Buzz aus.
-Hinweis: Nutzen sie den Modulo Operator % um zu prüfen, ob eine Variable durch eine andere teilbar ist (Rest 0).
-
-c) Nehmen Sie das Programm aus b) und modifizieren Sie es so, dass das Programm FizzBuzz ausgibt, wenn die Zahl durch sowohl 3 als auch durch 5 teilbar ist.
-Hinweis: Dieser Teil der Aufgabe hat eine offensichtlichere und eine cleverere Lösung. Finden Sie beide?
-
-Diese Frage ist eine beliebte Frage in Vorstellungsgesprächen. Wenn Sie diese also gelöst bekommen, ist Ihr Marktwert gerade gestiegen.
-
-d) Schreiben Sie eine Funktion, welche einen String zurückgibt, der ein 8x8 Schachbrett repräsentiert, mit neuen Zeilen ("\n") um die Zeilen zu trennen. An jeder Position im Brett ist entweder ein # oder ein Leerzeichen.
-
-Wenn der String über console.log ausgegeben wird, sollte er etwa so aussehen:
-
- # # # #
-# # # #
- # # # #
-# # # #
- # # # #
-# # # #
- # # # #
-# # # #
-Hinweis: Beginnen Sie mit einem leeren string ("") und fügen Sie dann immer mehr Zeichen hinzu. Für zwei Dimensionen brauchen Sie zwei Schleifen ineinander, eine für die Zeilen und eine für die Character innerhalb der Zeile.
-
-e) Nehmen Sie die Funktion aus d) und fügen Sie ihr einen Übergabeparameter hinzu, welcher die Höhe und Breite des Brettes bestimmt. Schreiben Sie ihre Funktion so um, dass es mit jeder Größe Funktioniert.
-Hinweis: Machen Sie sich Gedanken wie sie sich merken/berechnen können, welcher Character als erstes/nächstes in einer Zeile ausgegeben werden muss.
-*/
+/*2_1_6 a*/
+output();
+function output() {
+    let z6a = "";
+    for (let i6a = 1; i6a <= 7; i6a++) {
+        z6a += "#";
+        console.log(z6a);
+    }
+}
+/*2_1_6 b*/
+oneToHundred();
+function oneToHundred() {
+    for (let i6b = 1; i6b <= 100; i6b++) {
+        if (i6b % 3 == 0) {
+            console.log("Fizz");
+        }
+        else if (i6b % 5 == 0) {
+            console.log("Buzz");
+        }
+        else
+            console.log(i6b);
+    }
+}
+/*2_1_6 c*/
+oneToHundredII();
+function oneToHundredII() {
+    for (let i6b = 1; i6b <= 100; i6b++) {
+        if (i6b % 3 == 0) {
+            if (i6b % 5 == 0) {
+                console.log("FizzBuzz");
+            }
+            else
+                console.log("Fizz");
+        }
+        else if (i6b % 5 == 0) {
+            console.log("Buzz");
+        }
+        else
+            console.log(i6b);
+    }
+}
+/*2_1_6 d-e*/
+console.log(chess(8));
+function chess(n) {
+    let x6d = "";
+    for (let i6d = 1; i6d <= n; i6d++) {
+        for (let j6d = 1; j6d <= n; j6d++) {
+            if (i6d % 2 == 0) {
+                if (j6d % 2 == 0) {
+                    x6d += " ";
+                }
+                else {
+                    x6d += "#";
+                }
+            }
+            else {
+                if (j6d % 2 == 0) {
+                    x6d += "#";
+                }
+                else {
+                    x6d += " ";
+                }
+            }
+            if (j6d == n) {
+                x6d += "\n";
+            }
+        }
+    }
+    return x6d;
+}
+/* ich hab ausversehen die d schon adaptiv gelöst darum geb ich d und e gemeinsam ab. */
 //# sourceMappingURL=script.js.map
