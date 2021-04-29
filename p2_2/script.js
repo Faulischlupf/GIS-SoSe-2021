@@ -1,17 +1,15 @@
-namespace twotwo {
-
+"use strict";
+var twotwo;
+(function (twotwo) {
     /*2_2_1 a*/
-
-    let minArray: number[] = [3, 5, 7, 9];
-    let minArrayII: number[] = [8, 9, 12, 45, -6];
-
+    let minArray = [3, 5, 7, 9];
+    let minArrayII = [8, 9, 12, 45, -6];
     console.log(min(minArray));
     console.log(min(minArrayII));
-
-    function min(_numberArray: number[]): number {
-        let nMin: number = _numberArray.length;
-        let iMin: number = 0;
-        let xMin: number = _numberArray[iMin];
+    function min(_numberArray) {
+        let nMin = _numberArray.length;
+        let iMin = 0;
+        let xMin = _numberArray[iMin];
         while (iMin < nMin - 1) {
             if (_numberArray[iMin] < _numberArray[iMin + 1]) {
                 xMin = xMin;
@@ -24,17 +22,12 @@ namespace twotwo {
         }
         return xMin;
     }
-
     /*2_2_1 b*/
-
     /* Ich frage ab ob die zahl negativ ist fals ja addiere ich +2 anstelle von subtrahieren*/
-    let inputNumber: number = -1;
-
+    let inputNumber = -1;
     console.log(isEven(inputNumber));
-
-    function isEven(_inputNumber: number): boolean {
-        let nEven: number = _inputNumber;
-
+    function isEven(_inputNumber) {
+        let nEven = _inputNumber;
         if (nEven == 0 || nEven == 1) {
             if (nEven == 0) {
                 return true;
@@ -52,64 +45,39 @@ namespace twotwo {
                 nEven += 2;
                 return isEven(nEven);
             }
-
         }
     }
-
     /*2_2_1 c*/
-
-    let rolf: Student = { name: "Rolf", age: 22, sex: "Male", matCode: 1234 };
-    let sabrina: Student = { name: "Sabrina", age: 27, sex: "Female", matCode: 2345 };
-    let peter: Student = { name: "Peter", age: 19, sex: "Mannbärschwein", matCode: 3456 };
-
-    interface Student {
-        name: string;
-        age: number;
-        sex: string;
-        matCode: number;
-    }
-
-    let arrayStudent: Student[] = [rolf, sabrina, peter];
-
+    let rolf = { name: "Rolf", age: 22, sex: "Male", matCode: 1234 };
+    let sabrina = { name: "Sabrina", age: 27, sex: "Female", matCode: 2345 };
+    let peter = { name: "Peter", age: 19, sex: "Mannbärschwein", matCode: 3456 };
+    let arrayStudent = [rolf, sabrina, peter];
     arrayStudent.push({ name: "aylina", age: 24, sex: "Female", matCode: 4321 });
-
     console.log(arrayStudent[1]);
     console.log(rolf.sex);
     console.log(arrayStudent[3].matCode);
-
-    function showInfo(_studentData: Student): void {
+    function showInfo(_studentData) {
         console.log(_studentData.name, _studentData.matCode);
     }
-
     showInfo(arrayStudent[1]);
     showInfo(arrayStudent[2]);
     showInfo(arrayStudent[3]);
     showInfo(arrayStudent[0]);
     /*     Wenn Sie können, ändern Sie das interface in eine Klasse mit Konstruktur.
     Verschieben Sie außerdem die showInfo Funktion innerhalb die Klasse und machen Sie damit eine Methode daraus. */
-
-
     /* 2_2_2 a*/
-
-    let arrayInput: number[] = [1, 2, 3, 4, 5];
-
+    let arrayInput = [1, 2, 3, 4, 5];
     console.log(backwards(arrayInput));
-
-    function backwards(_arrayInput: number[]): number[] {
-        let i: number = _arrayInput.length - 1;
-        let arrayBackwards: number[] = [];
+    function backwards(_arrayInput) {
+        let i = _arrayInput.length - 1;
+        let arrayBackwards = [];
         while (i >= 0) {
             arrayBackwards.push(_arrayInput[i]);
             i--;
-
         }
         return arrayBackwards;
-
-
-
     }
-
-    /*    
+    /*
 
     Aufgabe 2 - Arrays
     ⚠️ Für die folgende Aufgabe sollen die übergebenen Arrays nicht verändert werden, sondern das Ergebnis als neues Array zurückgegeben werden.
@@ -166,4 +134,5 @@ namespace twotwo {
     g) Bonus: Ändern Sie ihre Rechteck-Klasse so ab, dass diese von einer neuen, Zeichenobjekt Klasse erbt.
     Lassen Sie außerdem von Zeichenobjekt eine neue Klasse Kreis erben, welche statt einem Rechteck einen Kreis zeichnet.
     Duplizieren Sie keinen (oder so wenig wie möglich) Code und nutzen Sie die Vererbung von Klassen voll aus.*/
-}
+})(twotwo || (twotwo = {}));
+//# sourceMappingURL=script.js.map
