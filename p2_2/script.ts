@@ -101,12 +101,43 @@ namespace twotwo {
         while (i >= 0) {
             arrayBackwards.push(_arrayInput[i]);
             i--;
-
         }
         return arrayBackwards;
+    }
 
+    /*2_2_2 b*/
 
+    let arrayI: number[] = [1, 2, 3];
+    let arrayII: number[] = [4, 5, 6];
 
+    console.log(join(arrayI, arrayII));
+
+    function join(_arrayI: number[], _arrayII: number[]): number[] {
+        let i: number = 0;
+        let arrayJoin: number[] = arrayI;
+        while (i < _arrayII.length) {
+            arrayJoin.push(_arrayII[i]);
+            i++;
+        }
+        return arrayJoin;
+    }
+
+    /*2_2_2 c*/
+
+    let arraySplitInput: number[] = [1, 2, 3, 4, 5, 6];
+    let splitI: number = 1;
+    let splitII: number = 4;
+
+    console.log(split(arraySplitInput, splitI, splitII));
+
+    function split(_arrayInput: number[], _splitI: number, _splitII: number): number[] {
+        let arraySplitOutput: number[] = [];
+        let i: number = _splitI;
+        while (i < _splitII) {
+            arraySplitOutput.push(_arrayInput[i]);
+            i++;
+        }
+        return arraySplitOutput;
     }
 
     /*    

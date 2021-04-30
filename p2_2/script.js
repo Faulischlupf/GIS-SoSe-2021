@@ -77,6 +77,33 @@ var twotwo;
         }
         return arrayBackwards;
     }
+    /*2_2_2 b*/
+    let arrayI = [1, 2, 3];
+    let arrayII = [4, 5, 6];
+    console.log(join(arrayI, arrayII));
+    function join(_arrayI, _arrayII) {
+        let i = 0;
+        let arrayJoin = arrayI;
+        while (i < _arrayII.length) {
+            arrayJoin.push(_arrayII[i]);
+            i++;
+        }
+        return arrayJoin;
+    }
+    /*2_2_2 c*/
+    let arraySplitInput = [1, 2, 3, 4, 5, 6];
+    let splitI = 1;
+    let splitII = 4;
+    console.log(split(arraySplitInput, splitI, splitII));
+    function split(_arrayInput, _splitI, _splitII) {
+        let arraySplitOutput = [];
+        let i = _splitI;
+        while (i < _splitII) {
+            arraySplitOutput.push(_arrayInput[i]);
+            i++;
+        }
+        return arraySplitOutput;
+    }
     /*
 
     Aufgabe 2 - Arrays
