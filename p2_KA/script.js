@@ -1,15 +1,35 @@
 "use strict";
-/*
-Aufgabe 3
-Nachdem in Aufgabe 2 nun die Vorarbeit geleistet wurde, sollen Sie in dieser Aufgabe nun eine dieser Unterseiten Umsetzen.
-
-a) Entwerfen Sie zunächst ihre Seite mit reinem HTML (und CSS). Füllen Sie die Daten der ersten Seite noch manuell in die Seite ein,
-um so das Layout und die Gestaltung zu testen.
-
-b) Verlagern Sie nun nach und nach die Abschnitte, die mit den Daten befüllt werden aus dem HTML in ihr TS und generieren Sie diese Abschnitte automatisch,
-abhängig von den Daten. Achten Sie dabei auf Variabilität: Die Seitengenerierung sollte auch weiterhin funktionieren,
-wenn Sie eine Auswahlmöglichkeit hinzufügen oder entfernen!
-
-c) Belegen Sie die geeigneten Elemente (z.B. Buttons) in ihrer generierten Seite mit Eventlistenern,
-welche die zugehörige Auswahlmöglichkeit auswählt. Geben Sie die Variable, in der die Auswahl gespeichert ist, auf der Konsole aus. */ 
+var p2_KA;
+(function (p2_KA) {
+    let h1 = document.createElement("h1");
+    h1.innerText = "Der Schwertinator";
+    document.body.appendChild(h1);
+    let flexbox = document.createElement("div");
+    flexbox.setAttribute("id", "flexbox");
+    document.body.appendChild(flexbox);
+    for (let i = 0; i < p2_KA.arrayHilt.length; i++) {
+        let hiltBlock = document.createElement("div");
+        flexbox.appendChild(hiltBlock);
+        let picture = document.createElement("img");
+        picture.setAttribute("src", p2_KA.arrayHilt[i].picture);
+        picture.setAttribute("height", 300 + "px");
+        hiltBlock.appendChild(picture);
+        let name = document.createElement("p");
+        name.innerText = "Name: " + p2_KA.arrayHilt[i].name;
+        hiltBlock.appendChild(name);
+        let length = document.createElement("p");
+        length.innerText = "Hilt Length: " + p2_KA.arrayHilt[i].length;
+        hiltBlock.appendChild(length);
+        let grip = document.createElement("p");
+        grip.innerText = "Grip Value: " + p2_KA.arrayHilt[i].grip;
+        hiltBlock.appendChild(grip);
+        let buttons = document.createElement("button");
+        buttons.innerText = "Choose";
+        hiltBlock.appendChild(buttons);
+        buttons.addEventListener("click", handelClickButton);
+        function handelClickButton(_event) {
+            console.log(p2_KA.arrayHilt[i]);
+        }
+    }
+})(p2_KA || (p2_KA = {}));
 //# sourceMappingURL=script.js.map

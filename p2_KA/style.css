@@ -1,4 +1,16 @@
-.flexbox{
+
+#flexbox {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
