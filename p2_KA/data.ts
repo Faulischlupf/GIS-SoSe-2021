@@ -1,26 +1,32 @@
 namespace p2_KA {
 
 
-    let masterswordBlade: Blade = { name: "Mastersword", bns: "locks booring", atk: 15 };
-    let moonlightTBlade: Blade = { name: "Moonlight GS", bns: "Moonlight Blade", atk: 20 };
-    let moonlightFBlade: Blade = { name: "Moonlight GS", bns: "Moonlight Blade", atk: 10 };
-    let frostmourneBlade: Blade = { name: "Frostmourne", bns: "Hungers", atk: 18 };
-    let irisBlade: Blade = { name: "Iris", bns: "Fashionable", atk: 12 };
+    let masterswordBlade: Parts = { picture: "../p2_KA/Mastersword_Blade.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
+    let moonlightTBlade: Parts = { picture: "../p2_KA/MoonlightGST_Blade.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let moonlightFBlade: Parts = { picture: "../p2_KA/MoonlightGSF_Blade.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let frostmourneBlade: Parts = { picture: "../p2_KA/Frostmourne_Blade.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
+    let irisBlade: Parts = { picture: "../p2_KA/Iris_Blade.png", name: "Iris", atk: 15, durability: 10, price: 10 };
 
-    let masterswordGuard: CrossGuard = { name: "Mastersword", guard: "not utterly horrible", durability: 130 };
-    let moonlightTGuard: CrossGuard = { name: "Moonlight GS", guard: "bloodborn version works wonders... Its a propper guard", durability: 150 };
-    let moonlightFGuard: CrossGuard = { name: "Moonlight GS", guard: "bloodborn version works wonders... Its a propper guard", durability: 150 };
-    let frostmourneGuard: CrossGuard = { name: "Frostmourne", guard: "complicatet and harmfull to your hand", durability: 80 };
-    let irisGuard: CrossGuard = { name: "Iris", guard: "good and dont think about adding spikes. please", durability: 170 };
+    let masterswordGuard: Parts = { picture: "../p2_KA/Mastersword_CrossGuard.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
+    let moonlightTGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let moonlightFGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let frostmourneGuard: Parts = { picture: "../p2_KA/Frostmourne_CrossGuard.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
+    let irisGuard: Parts = { picture: "../p2_KA/Iris_CrossGuard.png", name: "Iris", atk: 15, durability: 10, price: 10 };
 
-    let masterswordHilt: Hilt = { picture: "../p2_KA/MasterSwordII.png", name: "Mastersword", length: "One Handed", grip: 9 };
-    let moonlightTHilt: Hilt = { picture: "../p2_KA/MoonlightGS.png", name: "Moonlight GS", length: "Two Handed", grip: 11 };
-    let moonlightFHilt: Hilt = { picture: "../p2_KA/MoonlightGS.png", name: "Moonlight GS", length: "Two Handed", grip: 11 };
-    let frostmourneHilt: Hilt = { picture: "../p2_KA/Frostmourne.png", name: "Frostmourne", length: "One handed", grip: 7 };
-    let irisHilt: Hilt = { picture: "../p2_KA/Iris.jpg", name: "Iris", length: "One and a half Handed", grip: 14 };
+    let masterswordHilt: Parts = { picture: "../p2_KA/Mastersword_Hilt.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
+    let moonlightTHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let moonlightFHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
+    let frostmourneHilt: Parts = { picture: "../p2_KA/Frostmourne_Hilt.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
+    let irisHilt: Parts = { picture: "../p2_KA/Iris_Hilt.png", name: "Iris", atk: 15, durability: 10, price: 10 };
 
 
-    export let arrayBlade: Blade[] = [masterswordBlade, moonlightTBlade, moonlightFBlade, frostmourneBlade, irisBlade];
-    export let arrayGuard: CrossGuard[] = [masterswordGuard, moonlightTGuard, moonlightFGuard, frostmourneGuard, irisGuard];
-    export let arrayHilt: Hilt[] = [masterswordHilt, moonlightTHilt, moonlightFHilt, frostmourneHilt, irisHilt];
+    let arrayBlade: Parts[] = [masterswordBlade, moonlightTBlade, moonlightFBlade, frostmourneBlade, irisBlade];
+    let arrayGuard: Parts[] = [masterswordGuard, moonlightTGuard, moonlightFGuard, frostmourneGuard, irisGuard];
+    let arrayHilt: Parts[] = [masterswordHilt, moonlightTHilt, moonlightFHilt, frostmourneHilt, irisHilt];
+    let arraySword: Sword = { blade: arrayBlade, guard: arrayGuard, hilt: arrayHilt };
+
+    export let mySword: string = JSON.stringify(arraySword);
+
+
+
 }
