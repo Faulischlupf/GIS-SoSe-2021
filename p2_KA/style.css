@@ -1,10 +1,17 @@
-
 #flexbox {
     display: flex;
     justify-content: space-around;
     flex-flow: row wrap;
     align-items: center;
 }
+
+#display {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
