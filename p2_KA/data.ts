@@ -1,23 +1,23 @@
 namespace p2_KA {
 
 
-    let masterswordBlade: Parts = { picture: "../p2_KA/Mastersword_Blade.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
-    let moonlightTBlade: Parts = { picture: "../p2_KA/MoonlightGST_Blade.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let moonlightFBlade: Parts = { picture: "../p2_KA/MoonlightGSF_Blade.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let frostmourneBlade: Parts = { picture: "../p2_KA/Frostmourne_Blade.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
-    let irisBlade: Parts = { picture: "../p2_KA/Iris_Blade.png", name: "Iris", atk: 15, durability: 10, price: 10 };
+    let masterswordBlade: Parts = { picture: "../p2_KA/Mastersword_Blade.png", name: "sword", atk: 20, durability: 120, price: 12 };
+    let moonlightTBlade: Parts = { picture: "../p2_KA/MoonlightGST_Blade.png", name: " GS", atk: 40, durability: 100, price: 30 };
+    let moonlightFBlade: Parts = { picture: "../p2_KA/MoonlightGSF_Blade.png", name: " GS", atk: 10, durability: 100, price: 9 };
+    let frostmourneBlade: Parts = { picture: "../p2_KA/Frostmourne_Blade.png", name: "ne", atk: 25, durability: 50, price: 16 };
+    let irisBlade: Parts = { picture: "../p2_KA/Iris_Blade.png", name: "s", atk: 15, durability: 150, price: 10 };
 
-    let masterswordGuard: Parts = { picture: "../p2_KA/Mastersword_CrossGuard.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
-    let moonlightTGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let moonlightFGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let frostmourneGuard: Parts = { picture: "../p2_KA/Frostmourne_CrossGuard.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
-    let irisGuard: Parts = { picture: "../p2_KA/Iris_CrossGuard.png", name: "Iris", atk: 15, durability: 10, price: 10 };
+    let masterswordGuard: Parts = { picture: "../p2_KA/Mastersword_CrossGuard.png", name: "ter", atk: 20, durability: 120, price: 12 };
+    let moonlightTGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "light", atk: 15, durability: 100, price: 15 };
+    let moonlightFGuard: Parts = { picture: "../p2_KA/MoonlightGST_CrossGuard.png", name: "light", atk: 10, durability: 100, price: 9 };
+    let frostmourneGuard: Parts = { picture: "../p2_KA/Frostmourne_CrossGuard.png", name: "Frostmourne", atk: 25, durability: 50, price: 16 };
+    let irisGuard: Parts = { picture: "../p2_KA/Iris_CrossGuard.png", name: "ri", atk: 15, durability: 150, price: 10 };
 
-    let masterswordHilt: Parts = { picture: "../p2_KA/Mastersword_Hilt.png", name: "Mastersword", atk: 15, durability: 10, price: 10 };
-    let moonlightTHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let moonlightFHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moonlight GS", atk: 15, durability: 10, price: 10 };
-    let frostmourneHilt: Parts = { picture: "../p2_KA/Frostmourne_Hilt.png", name: "Frostmourne", atk: 15, durability: 10, price: 10 };
-    let irisHilt: Parts = { picture: "../p2_KA/Iris_Hilt.png", name: "Iris", atk: 15, durability: 10, price: 10 };
+    let masterswordHilt: Parts = { picture: "../p2_KA/Mastersword_Hilt.png", name: "Mas", atk: 20, durability: 120, price: 12 };
+    let moonlightTHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moon", atk: 15, durability: 100, price: 15 };
+    let moonlightFHilt: Parts = { picture: "../p2_KA/MoonlightGST_Hilt.png", name: "Moon", atk: 10, durability: 100, price: 9 };
+    let frostmourneHilt: Parts = { picture: "../p2_KA/Frostmourne_Hilt.png", name: "Frost", atk: 25, durability: 50, price: 16 };
+    let irisHilt: Parts = { picture: "../p2_KA/Iris_Hilt.png", name: "I", atk: 15, durability: 150, price: 10 };
 
 
     let arrayBlade: Parts[] = [masterswordBlade, moonlightTBlade, moonlightFBlade, frostmourneBlade, irisBlade];

@@ -11,6 +11,9 @@ var p2_KA;
     let flexbox = document.createElement("div");
     flexbox.setAttribute("id", "flexbox");
     document.body.appendChild(flexbox);
+    let addbox = document.createElement("div");
+    addbox.setAttribute("id", "addbox");
+    document.body.appendChild(addbox);
     function displaySword() {
         let picture1 = document.createElement("img");
         picture1.setAttribute("height", 100 + "px");
@@ -33,6 +36,30 @@ var p2_KA;
             display.appendChild(picture2);
             display.appendChild(picture3);
         }
+    }
+    function addition() {
+        let addName = "";
+        let addAtk = 0;
+        let addDurability = 0;
+        let addPrice = 0;
+        for (let i = 1; i < 4; i++) {
+            addName += sessionStorage.getItem("name" + i);
+            addAtk += Number(sessionStorage.getItem("atk" + i));
+            addDurability += Number(sessionStorage.getItem("durability" + i));
+            addPrice += Number(sessionStorage.getItem("price" + i));
+        }
+        let addNameLine = document.createElement("p");
+        addNameLine.innerText = "Name: " + addName;
+        addbox.appendChild(addNameLine);
+        let addAtkLine = document.createElement("p");
+        addAtkLine.innerText = "Attack Value: " + addAtk;
+        addbox.appendChild(addAtkLine);
+        let addDurabilityLine = document.createElement("p");
+        addDurabilityLine.innerText = "Durability: " + addDurability;
+        addbox.appendChild(addDurabilityLine);
+        let addPriceLine = document.createElement("p");
+        addPriceLine.innerText = "Price: " + addPrice + "G";
+        addbox.appendChild(addPriceLine);
     }
     function buildSword(_parts, _index) {
         let partsBlock = document.createElement("div");
@@ -70,7 +97,7 @@ var p2_KA;
             sessionStorage.setItem("name" + _index, _parts.name);
             sessionStorage.setItem("atk" + _index, "" + _parts.atk);
             sessionStorage.setItem("durability" + _index, "" + _parts.durability);
-            sessionStorage.setItem("Price" + _index, "" + _parts.price);
+            sessionStorage.setItem("price" + _index, "" + _parts.price);
             if (_index == 1) {
                 window.open("../p2_KA/guard.html", "_self");
             }
@@ -104,11 +131,29 @@ var p2_KA;
     }
     if ("sword.html" == getSubpage()) {
         displaySword();
+        addition();
     }
 })(p2_KA || (p2_KA = {}));
 /*
 Aufgabe 2
 Entwickeln Sie eine weitere Seite, auf die nachdem (je) ein Element aus allen Kategorieren ausgewählt wurde weitergeleitet wird.
 Auf dieser Seite sollte die grafische Darstellung zusammengeführt werden. Nutzen Sie dazu die Daten die Sie im Browser Cache abgelegt haben sowie die Daten aus der daten.ts Datei.
-*/ 
+*/
+/*function getStarted(): void {
+    let buttons: HTMLButtonElement = document.createElement("button");
+    buttons.innerText = "Choose";
+    partsBlock.appendChild(buttons);
+
+    buttons.addEventListener("click", handelClickButton);
+}
+
+
+
+if ("index.html" == getSubpage()) {
+    for (let i: number = 0; i < sword.hilt.length; i++) {
+        buildSword(sword.hilt[i], 1);
+
+    }
+}
+*/
 //# sourceMappingURL=script.js.map
