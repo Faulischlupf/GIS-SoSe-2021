@@ -14,7 +14,35 @@ namespace p2_KA {
         guard: Parts[];
         hilt: Parts[];
     }
-    let sword: Sword = JSON.parse(mySword);
+    let sword: Sword;
+
+    async function getData(_url: RequestInfo): Promise<void> {
+        let response: Response = await fetch(_url);
+        let jsonObject: string = await response.json();
+        console.log(jsonObject);
+        sword = JSON.parse(JSON.stringify(jsonObject));
+        console.log(jsonObject);
+
+    }
+    async function pingServer(_url: RequestInfo): Promise<string> {
+        let browserCacheData: JSON = JSON.parse(JSON.stringify(sessionStorage));
+        let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
+        _url = _url + "?" + query.toString();
+        let response: Response = await fetch(_url);
+        let text: string = await response.text();
+        let displayResponse: ServerResponse = JSON.parse(text);
+        if (displayResponse.error != undefined) {
+            return displayResponse.error + " \n Hier gibt es wirklich nichts zu sehen. Der Screen ist tot wie Bozos Oma.";
+        }
+        if (displayResponse.message != undefined) {
+            return displayResponse.message + "\n Hier gibt es wirklich nichts zu sehen. Der Screen ist tot wie Bozos Oma.";
+        }
+        return "Hier gibt es wirklich nichts zu sehen. Der Screen ist tot wie Bozos Oma.";
+    }
+    interface ServerResponse {
+        error: string;
+        message: string;
+    }
 
 
 
@@ -94,7 +122,11 @@ namespace p2_KA {
         addbox.appendChild(addPriceLine);
     }
 
-
+    async function displayServerResponse(): Promise<void> {
+        let showServerResponse: HTMLDivElement = document.createElement("div");
+        showServerResponse.innerText = await pingServer("https://gis-communication.herokuapp.com");
+        flexbox.appendChild(showServerResponse);
+    }
 
     function buildSword(_parts: Parts, _index: number): void {
         let partsBlock: HTMLDivElement = document.createElement("div");
@@ -156,51 +188,59 @@ namespace p2_KA {
     function getSubpage(): string {
         return window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
     }
+    async function buildPage(): Promise<void> {
+        await getData("../p2_KA/data.json");
+        if ("hilt.html" == getSubpage()) {
+            for (let i: number = 0; i < sword.hilt.length; i++) {
+                buildSword(sword.hilt[i], 1);
 
-    if ("hilt.html" == getSubpage()) {
-        for (let i: number = 0; i < sword.hilt.length; i++) {
-            buildSword(sword.hilt[i], 1);
+            }
+        }
+        if ("guard.html" == getSubpage()) {
+            displaySword();
+            for (let i: number = 0; i < sword.guard.length; i++) {
+                buildSword(sword.guard[i], 2);
+            }
+        }
+        if ("blade.html" == getSubpage()) {
+            displaySword();
+            for (let i: number = 0; i < sword.blade.length; i++) {
+                buildSword(sword.blade[i], 3);
+            }
+        }
+        if ("sword.html" == getSubpage()) {
+            displayServerResponse();
+            displaySword();
+            addition();
 
         }
     }
-    if ("guard.html" == getSubpage()) {
-        displaySword();
-        for (let i: number = 0; i < sword.guard.length; i++) {
-            buildSword(sword.guard[i], 2);
-        }
-    }
-    if ("blade.html" == getSubpage()) {
-        displaySword();
-        for (let i: number = 0; i < sword.blade.length; i++) {
-            buildSword(sword.blade[i], 3);
-        }
-    }
-    if ("sword.html" == getSubpage()) {
-        displaySword();
-        addition();
-    }
+    buildPage();
 }
+
 /*
-Aufgabe 2
-Entwickeln Sie eine weitere Seite, auf die nachdem (je) ein Element aus allen Kategorieren ausgewählt wurde weitergeleitet wird.
-Auf dieser Seite sollte die grafische Darstellung zusammengeführt werden. Nutzen Sie dazu die Daten die Sie im Browser Cache abgelegt haben sowie die Daten aus der daten.ts Datei.
-*/
 
+c) Fügen Sie der “Display Seite” (die in der alle ausgewählten Dinge gemeinsam am Ende angezeigt werden) eine Funktion hinzu, welche die Daten,
+die im Browsercache gespeichert sind, an die URL https://gis-communication.herokuapp.com verschickt und dessen JSON Antwort wohlformatiert auf Ihrer Webseite anzeigt.
+Die Antwort auf die erste Anfrage kann unter Umständen bis zu 15 Sekunden dauern, da der Server erst hochfahren muss.
 
-/*function getStarted(): void {
-    let buttons: HTMLButtonElement = document.createElement("button");
-    buttons.innerText = "Choose";
-    partsBlock.appendChild(buttons);
+Die möglichen Antworten der Seite sind entweder:
 
-    buttons.addEventListener("click", handelClickButton);
+{
+  "error": "<Fehlermeldung hier>"
 }
+oder
 
-
-
-if ("index.html" == getSubpage()) {
-    for (let i: number = 0; i < sword.hilt.length; i++) {
-        buildSword(sword.hilt[i], 1);
-
-    }
+{
+  "message": "<Nachricht des Servers hier>"
 }
+Formatieren Sie die Ausgaben unterschiedlich, je nach dem ob error oder message zurückgegeben wird.
+
+Nutzen Sie diesen Codeschnipsel, um die Daten zu versenden (Erklärung dazu gibt es in 3.1)).
+Um die Antwort auszulesen, muss die letzte Zeile dieses Schnipsels verändert werden, wie es in der Lektion diese Woche dargestellt wurde.
+Außerdem müssen Sie browserCacheData mit dem Speichermedium Ihrer Wahl ersetzen. broswerCacheData sollte ein (komplexes) JS Objekt sein, also nicht nur eine Zahl oder String.
+
+let query: URLSearchParams = new URLSearchParams(<any>browserCacheData);
+url = url + "?" + query.toString();
+await fetch(url);
 */
