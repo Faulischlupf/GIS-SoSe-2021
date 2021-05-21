@@ -199,7 +199,7 @@ namespace p2_KA {
         if ("guard.html" == getSubpage()) {
             displaySword();
             for (let i: number = 0; i < sword.guard.length; i++) {
-                buildSword(sword.guard[i], 2);
+                buildSword(sword.guard[i], 2); 
             }
         }
         if ("blade.html" == getSubpage()) {
