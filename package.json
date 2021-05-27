@@ -1,0 +1,21 @@
+{
+  "name": "gis-sose-2021",
+  "version": "1.0.0",
+  "description": "beeb beeb boop",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ../GIS-SOSE-2021/p3_1/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Faulischlupf/GIS-SoSe-2021.git"
+  },
+  "author": "Robin Palmer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Faulischlupf/GIS-SoSe-2021/issues"
+  },
+  "homepage": "https://github.com/Faulischlupf/GIS-SoSe-2021#readme"
+}
