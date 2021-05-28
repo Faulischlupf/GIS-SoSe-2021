@@ -3,7 +3,7 @@ var dreieins;
 (function (dreieins) {
     document.getElementById("theOneButton").addEventListener("click", handelButtonClick);
     function handelButtonClick() {
-        pingServer("https://https://gis2021.herokuapp.com");
+        pingServer("https://gis2021.herokuapp.com");
         console.log("jamoin");
     }
     async function pingServer(_url) {
