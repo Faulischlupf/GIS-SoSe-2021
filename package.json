@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "start": "node ./p3_1/server.js"
+    "start": "node ./p3_2/server.js"
   },
   "repository": {
     "type": "git",

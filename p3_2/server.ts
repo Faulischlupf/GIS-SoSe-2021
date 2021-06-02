@@ -1,4 +1,5 @@
 import * as Http from "http";
+import * as Url from "url";
 
 export namespace P_3_1Server {
 
@@ -22,15 +23,35 @@ export namespace P_3_1Server {
         console.log("Listening");
     }
 
+    interface query {
+        Name: string;
+        Strasse: string;
+        PLZ: string;
+        Ort: string;
+    }
+
     /*funktion die mit anfragen umgeht*/
     function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
+        let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+        let task: string = url.pathname.slice(1, url.pathname.length);
         console.log("I hear voices!");
         /*definiert aufmachung der response*/
         _response.setHeader("content-type", "text/html; charset=utf-8");
-        /*definiert wehr auf den server zugreifen darf*/
+        /*definiert wer auf den server zugreifen darf*/
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        /*sended url der response*/
-        _response.write(_request.url);
+
+        let query: query = JSON.parse(JSON.stringify(url.query));
+
+        console.log(task);
+        if (task == "html") {
+            _response.write(JSON.stringify(query));
+
+        }
+        if (task == "json") {
+            _response.write(JSON.stringify(query));
+        }
+        console.log(url);
+
         console.log(_request.url);
         /*beended server responce*/
         _response.end();

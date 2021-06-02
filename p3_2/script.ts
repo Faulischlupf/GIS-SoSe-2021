@@ -1,17 +1,40 @@
 namespace dreieins {
 
-    document.getElementById("theOneButton").addEventListener("click", handelButtonClick);
+    document.getElementById("theOneButton").addEventListener("click", handelButtonClickHTML);
+    document.getElementById("theOtherButton").addEventListener("click", handelButtonClickJSON);
+    let displayHTML: HTMLDivElement = <HTMLDivElement>document.getElementById("HTMLdisplay");
+    let url: string;
 
-    function handelButtonClick(): void {
-        pingServer("https://gis2021.herokuapp.com");
+    function urlFunction(): void {
+        url = "http://localhost:8100";
     }
-    async function pingServer(_url: RequestInfo): Promise<void> {
+
+
+    async function handelButtonClickHTML(): Promise<void> {
+        urlFunction();
         let formData: FormData = new FormData(document.forms[0]);
         //tslint:disable-next-line:no-any
         let query: URLSearchParams = new URLSearchParams(<any>formData);
-        _url = _url + "?" + query.toString();
-        let serverResponse: Response = await fetch(_url);
+        url = url + "/html?" + query.toString();
+        let serverResponse: Response = await fetch(url);
         let responseString: string = await serverResponse.text();
+        displayHTML.innerText = responseString;
         console.log(responseString);
+
+
+    }
+
+
+    async function handelButtonClickJSON(): Promise<void> {
+        urlFunction();
+        let formData: FormData = new FormData(document.forms[0]);
+        //tslint:disable-next-line:no-any
+        let query: URLSearchParams = new URLSearchParams(<any>formData);
+        url = url + "/json?" + query.toString();
+        let serverResponse: Response = await fetch(url);
+        let responseString: string = await serverResponse.text();
+        /*responseString = JSON.parse(responseString);*/
+        console.log(responseString);
+
     }
 }
