@@ -6,7 +6,7 @@ var dreieins;
     let displayHTML = document.getElementById("HTMLdisplay");
     let url;
     function urlFunction() {
-        url = "http://localhost:8100";
+        url = "https://gis2021.herokuapp.com";
     }
     async function handelButtonClickHTML() {
         urlFunction();

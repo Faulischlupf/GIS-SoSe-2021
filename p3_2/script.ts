@@ -6,7 +6,7 @@ namespace dreieins {
     let url: string;
 
     function urlFunction(): void {
-        url = "http://localhost:8100";
+        url = "https://gis2021.herokuapp.com";
     }
 
 

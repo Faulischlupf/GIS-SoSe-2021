@@ -34,7 +34,10 @@ var P_3_1Server;
         let query = JSON.parse(JSON.stringify(url.query));
         console.log(task);
         if (task == "html") {
-            _response.write(JSON.stringify(query));
+            _response.write("Name: " + query.Name + "\n");
+            _response.write("Straße: " + query.Strasse + "\n");
+            _response.write("PLZ: " + query.PLZ + "\n");
+            _response.write("Ort: " + query.Ort);
         }
         if (task == "json") {
             _response.write(JSON.stringify(query));
