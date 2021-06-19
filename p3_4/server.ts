@@ -6,7 +6,6 @@ import { ParsedUrlQuery } from "querystring";
 
 export namespace P_3_4Server {
 
-
     let submits: Mongo.Collection;
 
     let port: number = Number(process.env.PORT);
@@ -14,7 +13,8 @@ export namespace P_3_4Server {
     if (!port)
         port = 8100;
 
-    let databaseUrl: string = "mongodb://localhost:27017";
+    //let databaseUrl: string = "mongodb://localhost:27017";
+    let databaseUrl: string = "mongodb+srv://Roell:PnXI1DRwzEe4Qgli@gissose2021.enldi.mongodb.net";
 
     startServer(port);
     connectToDatabase(databaseUrl);
@@ -22,8 +22,6 @@ export namespace P_3_4Server {
     function startServer(_port: number | string): void {
         console.log("Starting server");
         console.log("this is me");
-
-
 
         /*initailisiere server*/
         let server: Http.Server = Http.createServer();
@@ -48,7 +46,6 @@ export namespace P_3_4Server {
         console.log("Listening");
     }
 
-
     /*funktion die mit anfragen umgeht*/
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
@@ -59,17 +56,10 @@ export namespace P_3_4Server {
         /*definiert wer auf den server zugreifen darf*/
         _response.setHeader("Access-Control-Allow-Origin", "*");
 
-        //let query: Submits = JSON.parse(JSON.stringify(url.query));
-
-        //let jsonString: string = JSON.stringify(url.query);
-        //_response.write(jsonString);
-
-
         console.log(task);
         if (task == "submit") {
             storeSubmit(url.query);
             _response.write("Session Submitted");
-
         }
         if (task == "show") {
             let cursor: Mongo.Cursor = submits.find();
@@ -77,21 +67,10 @@ export namespace P_3_4Server {
 
             console.log(result);
             _response.write(JSON.stringify(result));
-
-
-            /*_response.write("Name: " + query.Name + "\n");
-            _response.write("Ruleset: " + query.Ruleset + "\n");
-            _response.write("Location: " + query.Location + "\n");
-            _response.write("Date: " + query.Date);*/
         }
-        //console.log(url);
-
-        //console.log(_request.url);
-        /*beended server responce*/
         _response.end();
     }
     function storeSubmit(_post: ParsedUrlQuery): void {
         submits.insert(_post);
-
     }
 }

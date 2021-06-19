@@ -11,7 +11,8 @@ var P_3_4Server;
     /*giebt port die nummer 8100*/
     if (!port)
         port = 8100;
-    let databaseUrl = "mongodb://localhost:27017";
+    //let databaseUrl: string = "mongodb://localhost:27017";
+    let databaseUrl = "mongodb+srv://Roell:PnXI1DRwzEe4Qgli@gissose2021.enldi.mongodb.net";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -46,9 +47,6 @@ var P_3_4Server;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         /*definiert wer auf den server zugreifen darf*/
         _response.setHeader("Access-Control-Allow-Origin", "*");
-        //let query: Submits = JSON.parse(JSON.stringify(url.query));
-        //let jsonString: string = JSON.stringify(url.query);
-        //_response.write(jsonString);
         console.log(task);
         if (task == "submit") {
             storeSubmit(url.query);
@@ -59,14 +57,7 @@ var P_3_4Server;
             let result = await cursor.toArray();
             console.log(result);
             _response.write(JSON.stringify(result));
-            /*_response.write("Name: " + query.Name + "\n");
-            _response.write("Ruleset: " + query.Ruleset + "\n");
-            _response.write("Location: " + query.Location + "\n");
-            _response.write("Date: " + query.Date);*/
         }
-        //console.log(url);
-        //console.log(_request.url);
-        /*beended server responce*/
         _response.end();
     }
     function storeSubmit(_post) {

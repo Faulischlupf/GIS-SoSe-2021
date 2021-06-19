@@ -1,4 +1,4 @@
-export namespace dreivier {
+namespace dreivier {
 
     document.getElementById("submitButton").addEventListener("click", handelButtonClickSubmit);
     document.getElementById("showList").addEventListener("click", handelButtonClickShow);
@@ -6,8 +6,8 @@ export namespace dreivier {
     let url: string;
 
     function urlFunction(): void {
-        //url = "https://gis2021.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://gis2021.herokuapp.com";
+        //url = "http://localhost:8100";
     }
 
 
@@ -23,6 +23,7 @@ export namespace dreivier {
         let responseString: string = await serverResponse.text();
         displayHTML.innerText = responseString;
         console.log(responseString);
+        console.log(query.toString());
 
 
     }
@@ -34,13 +35,41 @@ export namespace dreivier {
         url = url + "/show?";
         let serverResponse: Response = await fetch(url);
         let responseString: Submits[] = await serverResponse.json();
-        for (let i: number = 0; i < responseString.length; i++){
-            
+
+        let submitTable: HTMLTableElement = document.createElement("table");
+        displayHTML.appendChild(submitTable);
+        let tableHead: HTMLTableRowElement = document.createElement("tr");
+        submitTable.appendChild(tableHead);
+        let theadName: HTMLTableHeaderCellElement = document.createElement("th");
+        tableHead.appendChild(theadName);
+        let theadRuleset: HTMLTableHeaderCellElement = document.createElement("th");
+        tableHead.appendChild(theadRuleset);
+        let theadLocation: HTMLTableHeaderCellElement = document.createElement("th");
+        tableHead.appendChild(theadLocation);
+        let theadDate: HTMLTableHeaderCellElement = document.createElement("th");
+        tableHead.appendChild(theadDate);
+
+        theadName.innerText = "Name";
+        theadRuleset.innerText = "Ruleset";
+        theadLocation.innerText = "Location";
+        theadDate.innerText = "Date";
+
+        for (let i: number = 0; i < responseString.length; i++) {
+            let tableRow: HTMLTableRowElement = document.createElement("tr");
+            submitTable.appendChild(tableRow);
+            let tableName: HTMLTableCellElement = document.createElement("td");
+            tableRow.appendChild(tableName);
+            let tableRuleset: HTMLTableCellElement = document.createElement("td");
+            tableRow.appendChild(tableRuleset);
+            let tableLocation: HTMLTableCellElement = document.createElement("td");
+            tableRow.appendChild(tableLocation);
+            let tableDate: HTMLTableCellElement = document.createElement("td");
+            tableRow.appendChild(tableDate);
+
+            tableName.innerText += responseString[i].Name;
+            tableRuleset.innerText += responseString[i].Ruleset;
+            tableLocation.innerText += responseString[i].Location;
+            tableDate.innerText += responseString[i].Date;
         }
-
-            responseString = JSON.parse(responseString);
-        displayHTML.innerText = responseString;
-        console.log(responseString);
-
     }
 }

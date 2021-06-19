@@ -1,0 +1,11 @@
+/*Tables*/
+
+table, th, td, tr {
+    border: 1px solid black;
+    padding: 3px;
+    margin: auto;
+}
+
+#HTMLdisplay {
+    text-align: left;
+}
