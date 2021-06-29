@@ -1,0 +1,3 @@
+interface Pictures {
+    picture: string;
+}
