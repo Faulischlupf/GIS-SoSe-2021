@@ -1,5 +1,4 @@
 
-
 namespace Memory {
 
     let displayHTML: HTMLDivElement = <HTMLDivElement>document.getElementById("displayResponse");
@@ -15,7 +14,7 @@ namespace Memory {
         //url = "https://gis2021.herokuapp.com";
         url = "http://localhost:8100";
     }
-
+    
     async function handelButtonClickSubmitPicture(): Promise<void> {
         urlFunction();
         console.log("submited");
@@ -34,6 +33,7 @@ namespace Memory {
 
 
     }
+    
     async function loadPictures(): Promise<void> {
         showPicture.innerHTML = "";
         urlFunction();
