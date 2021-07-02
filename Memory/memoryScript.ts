@@ -4,6 +4,7 @@ namespace Memory {
     let url: string;
     let memoryDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("memory");
     let counter: number = 0;
+    let scoreCounter: number = 0;
     let cardOne: string = "";
     let cardTwo: string = "";
 
@@ -24,89 +25,77 @@ namespace Memory {
 
         for (let i: number = 0; i < 8; i++) {
             //Card One
-            let memoryCardOne: HTMLDivElement = document.createElement("div");
-            memoryCardOne.setAttribute("id", i + "cardOne");
-            memoryDiv.appendChild(memoryCardOne);
+            for (let j: number = 0; j < 2; j++) {
+                let memoryCard: HTMLDivElement = document.createElement("div");
+                memoryCard.setAttribute("id", i + "card" + j);
+                memoryDiv.appendChild(memoryCard);
 
-            let picture: HTMLImageElement = document.createElement("img");
-            picture.setAttribute("src", responseString[i].picture);
-            picture.classList.add("blank");
-            memoryCardOne.appendChild(picture);
-
-            let back: HTMLImageElement = document.createElement("img");
-            back.setAttribute("src", "./MarieGoldFish.png");
-            memoryCardOne.appendChild(back);
-
-            //Card Two
-            let memoryCardTwo: HTMLDivElement = document.createElement("div");
-            memoryCardTwo.setAttribute("id", i + "cardTwo");
-            memoryDiv.appendChild(memoryCardTwo);
-
-            let pictureDuplicate: HTMLImageElement = document.createElement("img");
-            pictureDuplicate.setAttribute("src", responseString[i].picture);
-            pictureDuplicate.classList.add("blank");
-            memoryCardTwo.appendChild(pictureDuplicate);
-
-            let backDuplicate: HTMLImageElement = document.createElement("img");
-            backDuplicate.setAttribute("src", "./MarieGoldFish.png");
-            memoryCardTwo.appendChild(backDuplicate);
-
-
-            back.addEventListener("click", handelButtonClickFlipp);
-            backDuplicate.addEventListener("click", handelButtonClickFlippDuplicate);
-
-            function handelButtonClickFlipp(_event: Event): void {
-                if (cardOne == "") {
-                    let target: HTMLElement = <HTMLElement>_event.target;
-                    cardOne = target.parentElement.id;
-                    console.log(cardOne);
-                    
-                }
-                else {
-                    let target: HTMLElement = <HTMLElement>_event.target;
-                    cardTwo = target.parentElement.id;
-                    console.log(cardTwo);
-                    
-                }
-                back.classList.add("blank");
-                picture.classList.remove("blank");
-                counter++;
-                console.log("FLIPP");
-                if (counter >= 2) {
-                    setTimeout(backFlip, 1000);
-                    back.removeEventListener("click", handelButtonClickFlipp);
-                    backDuplicate.removeEventListener("click", handelButtonClickFlippDuplicate);
-                
-
-                }
-
-
-            }
-            function handelButtonClickFlippDuplicate(): void {
-                backDuplicate.classList.add("blank");
-                pictureDuplicate.classList.remove("blank");
-                console.log("FLIPP");
-                counter++;
-                if (counter >= 2) {
-                    setTimeout(backFlip, 1000);
-                    back.removeEventListener("click", handelButtonClickFlipp);
-                    backDuplicate.removeEventListener("click", handelButtonClickFlippDuplicate);
-
-                }
-            }
-            function backFlip(): void {
-                back.classList.remove("blank");
+                let picture: HTMLImageElement = document.createElement("img");
+                picture.setAttribute("src", responseString[i].picture);
                 picture.classList.add("blank");
-                backDuplicate.classList.remove("blank");
-                pictureDuplicate.classList.add("blank");
-                counter = 0;
+                memoryCard.appendChild(picture);
+
+                let back: HTMLImageElement = document.createElement("img");
+                back.setAttribute("src", "./MarieGoldFish.png");
+                memoryCard.appendChild(back);
+
                 back.addEventListener("click", handelButtonClickFlipp);
-                backDuplicate.addEventListener("click", handelButtonClickFlippDuplicate);
 
+                function handelButtonClickFlipp(_event: Event): void {
+
+                    if (counter >= 2) return;
+
+                    if (cardOne == "") {
+                        let target: HTMLElement = <HTMLElement>_event.target;
+                        cardOne = target.parentElement.id;
+                        console.log(cardOne);
+
+                    }
+                    else {
+                        let target: HTMLElement = <HTMLElement>_event.target;
+                        cardTwo = target.parentElement.id;
+                        console.log(cardTwo);
+
+                    }
+                    back.classList.add("blank");
+                    picture.classList.remove("blank");
+                    counter++;
+                    console.log("FLIPP");
+
+                    if (counter >= 2) {
+
+                        if (cardOne.slice(0, 1) == cardTwo.slice(0, 1)) {
+                            scoreCounter++;
+                            console.log(scoreCounter);
+
+                            counter = 0;
+                            cardOne = "";
+                            cardTwo = "";
+                            /*if (scoreCounter = 8) {
+
+                            }*/
+
+                        }
+                        else {
+                            setTimeout(backFlip, 1000);
+
+                        }
+                    }
+                }
+
+                function backFlip(): void {
+                    console.log("hab ich doch gesagt");
+
+                    document.getElementById(cardOne).firstElementChild.classList.add("blank");
+                    document.getElementById(cardOne).lastElementChild.classList.remove("blank");
+                    document.getElementById(cardTwo).firstElementChild.classList.add("blank");
+                    document.getElementById(cardTwo).lastElementChild.classList.remove("blank");
+
+                    counter = 0;
+                    cardOne = "";
+                    cardTwo = "";
+                }
             }
-
         }
-
     }
-
 }
