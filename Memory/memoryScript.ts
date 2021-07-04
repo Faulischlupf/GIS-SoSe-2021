@@ -5,10 +5,31 @@ namespace Memory {
     let memoryDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("memory");
     let counter: number = 0;
     let scoreCounter: number = 0;
+    let timeCounter: number = 0;
     let cardOne: string = "";
     let cardTwo: string = "";
 
     window.addEventListener("load", loadPictures);
+
+    let timer: HTMLButtonElement = <HTMLButtonElement>document.getElementById("startTimer");
+    timer.addEventListener("click", startTimer);
+
+    function startTimer(): void {
+        memoryDiv.classList.remove("blank");
+        timer.classList.add("blank");
+        setInterval(timerCount, 1000);
+
+        /*while (scoreCounter <= 8) {
+            
+        }*/
+
+    }
+    function timerCount(): void {
+        timeCounter += 1;
+        Math.round(timeCounter);
+        console.log(timeCounter);
+
+    }
 
     function urlFunction(): void {
         //url = "https://gis2021.herokuapp.com";
@@ -17,8 +38,9 @@ namespace Memory {
     async function loadPictures(): Promise<void> {
         memoryDiv.innerHTML = "";
         urlFunction();
+        memoryDiv.classList.add("blank");
 
-        url = url + "/show?";
+        url = url + "/showMemory?";
         let serverResponse: Response = await fetch(url);
         let responseString: Pictures[] = await serverResponse.json();
         console.log(responseString);
@@ -71,9 +93,10 @@ namespace Memory {
                             counter = 0;
                             cardOne = "";
                             cardTwo = "";
-                            /*if (scoreCounter = 8) {
-
-                            }*/
+                            if (scoreCounter == 8) {
+                                sessionStorage.setItem("endTime", timeCounter.toString());
+                                window.open("./score.html", "_self");
+                            }
 
                         }
                         else {
@@ -84,7 +107,6 @@ namespace Memory {
                 }
 
                 function backFlip(): void {
-                    console.log("hab ich doch gesagt");
 
                     document.getElementById(cardOne).firstElementChild.classList.add("blank");
                     document.getElementById(cardOne).lastElementChild.classList.remove("blank");
@@ -96,6 +118,10 @@ namespace Memory {
                     cardTwo = "";
                 }
             }
+        }
+        //From stack overflow, interpreted in TS: https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+        for (let i: number = memoryDiv.children.length; i >= 0; i--) {
+            memoryDiv.appendChild(memoryDiv.children[Math.random() * i | 0]);
         }
     }
 }

@@ -5,9 +5,25 @@ var Memory;
     let memoryDiv = document.getElementById("memory");
     let counter = 0;
     let scoreCounter = 0;
+    let timeCounter = 0;
     let cardOne = "";
     let cardTwo = "";
     window.addEventListener("load", loadPictures);
+    let timer = document.getElementById("startTimer");
+    timer.addEventListener("click", startTimer);
+    function startTimer() {
+        memoryDiv.classList.remove("blank");
+        timer.classList.add("blank");
+        setInterval(timerCount, 1000);
+        /*while (scoreCounter <= 8) {
+            
+        }*/
+    }
+    function timerCount() {
+        timeCounter += 1;
+        Math.round(timeCounter);
+        console.log(timeCounter);
+    }
     function urlFunction() {
         //url = "https://gis2021.herokuapp.com";
         url = "http://localhost:8100";
@@ -15,7 +31,8 @@ var Memory;
     async function loadPictures() {
         memoryDiv.innerHTML = "";
         urlFunction();
-        url = url + "/show?";
+        memoryDiv.classList.add("blank");
+        url = url + "/showMemory?";
         let serverResponse = await fetch(url);
         let responseString = await serverResponse.json();
         console.log(responseString);
@@ -57,9 +74,10 @@ var Memory;
                             counter = 0;
                             cardOne = "";
                             cardTwo = "";
-                            /*if (scoreCounter = 8) {
-
-                            }*/
+                            if (scoreCounter == 8) {
+                                sessionStorage.setItem("endTime", timeCounter.toString());
+                                window.open("./score.html", "_self");
+                            }
                         }
                         else {
                             setTimeout(backFlip, 1000);
@@ -67,7 +85,6 @@ var Memory;
                     }
                 }
                 function backFlip() {
-                    console.log("hab ich doch gesagt");
                     document.getElementById(cardOne).firstElementChild.classList.add("blank");
                     document.getElementById(cardOne).lastElementChild.classList.remove("blank");
                     document.getElementById(cardTwo).firstElementChild.classList.add("blank");
@@ -77,6 +94,10 @@ var Memory;
                     cardTwo = "";
                 }
             }
+        }
+        //From stack overflow, interpreted in TS: https://stackoverflow.com/questions/7070054/javascript-shuffle-html-list-element-order
+        for (let i = memoryDiv.children.length; i >= 0; i--) {
+            memoryDiv.appendChild(memoryDiv.children[Math.random() * i | 0]);
         }
     }
 })(Memory || (Memory = {}));

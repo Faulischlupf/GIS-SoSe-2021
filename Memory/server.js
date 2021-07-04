@@ -65,6 +65,7 @@ var Memory;
                 }
             }
         }
+        //Loads Pictures after loading the admin page
         if (task == "show") {
             let cursor = memoryPictures.find();
             let result = await cursor.toArray();
@@ -75,6 +76,12 @@ var Memory;
             let picture = await memoryPictures.findOne({ "picture": url.query.picture });
             memoryPictures.deleteOne(picture);
             _response.write("TERMINIERT");
+        }
+        if (task == "showMemory") {
+            let cursor = memoryPictures.aggregate([{ $sample: { size: 8 } }]);
+            let result = await cursor.toArray();
+            console.log(result);
+            _response.write(JSON.stringify(result));
         }
         _response.end();
     }

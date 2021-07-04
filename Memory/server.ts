@@ -65,19 +65,20 @@ export namespace Memory {
             }
             else {
                 if (url.path.includes(".jpg" || ".png")) {
-                    
+
                     console.log("itsa me", url.query);
                     memoryPictures.insertOne(url.query);
                     _response.write("Picture Submitted");
                 }
                 else {
-                    
+
                     _response.write("Ich esse nur JPG oder PNG. Deinen Dreck fress ich nicht.");
                 }
 
 
             }
         }
+        //Loads Pictures after loading the admin page
         if (task == "show") {
             let cursor: Mongo.Cursor = memoryPictures.find();
             let result: Pictures[] = await cursor.toArray();
@@ -90,6 +91,13 @@ export namespace Memory {
             memoryPictures.deleteOne(picture);
             _response.write("TERMINIERT");
 
+        }
+        if (task == "showMemory") {
+            let cursor: Mongo.Cursor = memoryPictures.aggregate([{ $sample: { size: 8 } }]);
+            let result: Pictures[] = await cursor.toArray();
+
+            console.log(result);
+            _response.write(JSON.stringify(result));
         }
 
 

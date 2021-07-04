@@ -1,11 +1,13 @@
 .blank {
-    display: none;
+    display: none !important;
+}
+
+#memory {
+    flex-flow: row wrap;
+    display: flex;
 }
 
 #memory img {
     flex-flow: row;
-    max-width: 100px;
-}
-#memory div {
-    flex-flow: row;
+    max-width: 200px;
 }
