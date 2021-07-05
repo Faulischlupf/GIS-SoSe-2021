@@ -44,9 +44,9 @@ namespace Memory {
         let serverResponse: Response = await fetch(url);
         let responseString: Pictures[] = await serverResponse.json();
         console.log(responseString);
-
+        //Create Cards
         for (let i: number = 0; i < 8; i++) {
-            //Card One
+
             for (let j: number = 0; j < 2; j++) {
                 let memoryCard: HTMLDivElement = document.createElement("div");
                 memoryCard.setAttribute("id", i + "card" + j);

@@ -6,6 +6,7 @@ import * as Mongo from "mongodb";
 export namespace Memory {
 
     let memoryPictures: Mongo.Collection;
+    let memoryScore: Mongo.Collection;
 
     let port: number = Number(process.env.PORT);
     /*giebt port die nummer 8100*/
@@ -38,6 +39,8 @@ export namespace Memory {
         await mongoClient.connect();
         memoryPictures = mongoClient.db("Database").collection("memoryPictures");
         console.log("Database connection", memoryPictures != undefined);
+        memoryScore = mongoClient.db("Database").collection("memoryScore");
+        console.log("Database connection", memoryScore != undefined);
     }
 
     /*funktion die ausgiebt sobald der server bereit ist*/
@@ -57,7 +60,7 @@ export namespace Memory {
 
         console.log(task);
 
-
+        //Saves picture in database
         if (task == "submit") {
             let duplicate: Pictures = await memoryPictures.findOne({ "picture": url.query.picture });
             if (duplicate != undefined) {
@@ -78,20 +81,21 @@ export namespace Memory {
 
             }
         }
-        //Loads Pictures after loading the admin page
+        //Loads pictures after loading the admin page
         if (task == "show") {
             let cursor: Mongo.Cursor = memoryPictures.find();
             let result: Pictures[] = await cursor.toArray();
-
             console.log(result);
             _response.write(JSON.stringify(result));
         }
+        //Deletes selectet picture
         if (task == "delete") {
             let picture: Pictures = await memoryPictures.findOne({ "picture": url.query.picture });
             memoryPictures.deleteOne(picture);
             _response.write("TERMINIERT");
 
         }
+        //Loads pictures in memory page
         if (task == "showMemory") {
             let cursor: Mongo.Cursor = memoryPictures.aggregate([{ $sample: { size: 8 } }]);
             let result: Pictures[] = await cursor.toArray();
@@ -99,11 +103,25 @@ export namespace Memory {
             console.log(result);
             _response.write(JSON.stringify(result));
         }
+        //Loads scores after loading score page
+        if (task == "score") {
+            let cursor: Mongo.Cursor = memoryScore.find().sort({ "time": 1 });
+            let result: Score[] = await cursor.toArray();
+            console.log(result);
+            _response.write(JSON.stringify(result));
+        }
+        //Write new score
+        if (task == "writeScore") {
+            _response.write(url.query.name.toString());
+            if (url.query.name.toString() == "" || url.query.name.toString() == " ") {
+                _response.write("No name no score");
 
-
+            }
+            else {
+                memoryScore.insertOne(url.query);
+                _response.write("Score saved");
+            }
+        }
         _response.end();
     }
-    /*function storeSubmit(_post: ParsedUrlQuery): void {
-        memoryPictures.insertOne(_post);
-    }*/
 }

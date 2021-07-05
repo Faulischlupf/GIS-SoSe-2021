@@ -8,6 +8,7 @@ const Mongo = require("mongodb");
 var Memory;
 (function (Memory) {
     let memoryPictures;
+    let memoryScore;
     let port = Number(process.env.PORT);
     /*giebt port die nummer 8100*/
     if (!port)
@@ -34,6 +35,8 @@ var Memory;
         await mongoClient.connect();
         memoryPictures = mongoClient.db("Database").collection("memoryPictures");
         console.log("Database connection", memoryPictures != undefined);
+        memoryScore = mongoClient.db("Database").collection("memoryScore");
+        console.log("Database connection", memoryScore != undefined);
     }
     /*funktion die ausgiebt sobald der server bereit ist*/
     function handleListen() {
@@ -49,6 +52,7 @@ var Memory;
         /*definiert wer auf den server zugreifen darf*/
         _response.setHeader("Access-Control-Allow-Origin", "*");
         console.log(task);
+        //Saves picture in database
         if (task == "submit") {
             let duplicate = await memoryPictures.findOne({ "picture": url.query.picture });
             if (duplicate != undefined) {
@@ -65,28 +69,45 @@ var Memory;
                 }
             }
         }
-        //Loads Pictures after loading the admin page
+        //Loads pictures after loading the admin page
         if (task == "show") {
             let cursor = memoryPictures.find();
             let result = await cursor.toArray();
             console.log(result);
             _response.write(JSON.stringify(result));
         }
+        //Deletes selectet picture
         if (task == "delete") {
             let picture = await memoryPictures.findOne({ "picture": url.query.picture });
             memoryPictures.deleteOne(picture);
             _response.write("TERMINIERT");
         }
+        //Loads pictures in memory page
         if (task == "showMemory") {
             let cursor = memoryPictures.aggregate([{ $sample: { size: 8 } }]);
             let result = await cursor.toArray();
             console.log(result);
             _response.write(JSON.stringify(result));
         }
+        //Loads scores after loading score page
+        if (task == "score") {
+            let cursor = memoryScore.find().sort({ "time": 1 });
+            let result = await cursor.toArray();
+            console.log(result);
+            _response.write(JSON.stringify(result));
+        }
+        //Write new score
+        if (task == "writeScore") {
+            _response.write(url.query.name.toString());
+            if (url.query.name.toString() == "" || url.query.name.toString() == " ") {
+                _response.write("No name no score");
+            }
+            else {
+                memoryScore.insertOne(url.query);
+                _response.write("Score saved");
+            }
+        }
         _response.end();
     }
-    /*function storeSubmit(_post: ParsedUrlQuery): void {
-        memoryPictures.insertOne(_post);
-    }*/
 })(Memory = exports.Memory || (exports.Memory = {}));
 //# sourceMappingURL=server.js.map

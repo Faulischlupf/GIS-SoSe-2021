@@ -17,7 +17,7 @@ namespace Memory {
     
     async function handelButtonClickSubmitPicture(): Promise<void> {
         urlFunction();
-        console.log("submited");
+        console.log("Submited");
 
         let formData: FormData = new FormData(document.forms[0]);
         //tslint:disable-next-line:no-any

@@ -12,7 +12,7 @@ var Memory;
     }
     async function handelButtonClickSubmitPicture() {
         urlFunction();
-        console.log("submited");
+        console.log("Submited");
         let formData = new FormData(document.forms[0]);
         //tslint:disable-next-line:no-any
         let query = new URLSearchParams(formData);

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./scoreScript.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 
@@ -14,7 +14,16 @@
     <div>
         <button type="button"><a href="./index.html">Back</a> </button>
     </div>
-    <div id="scoreBord"></div>
+    <div>
+        <form action="" id="enterScore">
+            <label for="name">Please enter your name</label>
+            <input type="text" name="name">
+            <label for="time" id="labelTime">Time: </label>
+            <button id="registerScore" type="button">Register score</button>
+        </form>
+    </div>
+    <div id="displayResponse"></div>
+    <div id="showScore"></div>
     <div>
         <Button type="button"><a href="./memory.html">New Game</a></Button>
     </div>

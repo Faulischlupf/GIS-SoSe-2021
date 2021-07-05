@@ -36,8 +36,8 @@ var Memory;
         let serverResponse = await fetch(url);
         let responseString = await serverResponse.json();
         console.log(responseString);
+        //Create Cards
         for (let i = 0; i < 8; i++) {
-            //Card One
             for (let j = 0; j < 2; j++) {
                 let memoryCard = document.createElement("div");
                 memoryCard.setAttribute("id", i + "card" + j);
