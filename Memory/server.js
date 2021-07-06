@@ -54,12 +54,13 @@ var Memory;
         console.log(task);
         //Saves picture in database
         if (task == "submit") {
+            console.log(url.path.toString());
             let duplicate = await memoryPictures.findOne({ "picture": url.query.picture });
             if (duplicate != undefined) {
                 _response.write("Sorry Duuuuude no Duplicates");
             }
             else {
-                if (url.path.includes(".jpg" || ".png")) {
+                if (url.path.includes(".jpg") || url.path.includes(".png")) {
                     console.log("itsa me", url.query);
                     memoryPictures.insertOne(url.query);
                     _response.write("Picture Submitted");

@@ -23,6 +23,8 @@ namespace Memory {
         showScore.innerHTML = "";
         urlFunction();
 
+        toShowOrNotToShow();
+
         url = url + "/score?";
         let serverResponse: Response = await fetch(url);
         let responseString: Score[] = await serverResponse.json();
@@ -72,8 +74,17 @@ namespace Memory {
         displayHTML.innerText = responseString;
 
         enterScore.classList.add("blank");
+        sessionStorage.clear();
 
         loadScore();
+    }
+    //mmmh griffig und wunderschön deskriptiv
+    function toShowOrNotToShow(): void {
+
+        let swich: string = sessionStorage.getItem("switch");
+        if (swich == "memory") {
+            enterScore.classList.remove("blank");
+        }
     }
 
 }

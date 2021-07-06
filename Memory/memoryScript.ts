@@ -95,6 +95,7 @@ namespace Memory {
                             cardTwo = "";
                             if (scoreCounter == 8) {
                                 sessionStorage.setItem("endTime", timeCounter.toString());
+                                sessionStorage.setItem("switch", "memory");
                                 window.open("./score.html", "_self");
                             }
 

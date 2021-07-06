@@ -17,6 +17,7 @@ var Memory;
     async function loadScore() {
         showScore.innerHTML = "";
         urlFunction();
+        toShowOrNotToShow();
         url = url + "/score?";
         let serverResponse = await fetch(url);
         let responseString = await serverResponse.json();
@@ -58,7 +59,15 @@ var Memory;
         let responseString = await serverResponse.text();
         displayHTML.innerText = responseString;
         enterScore.classList.add("blank");
+        sessionStorage.clear();
         loadScore();
+    }
+    //mmmh griffig und wunderschön deskriptiv
+    function toShowOrNotToShow() {
+        let swich = sessionStorage.getItem("switch");
+        if (swich == "memory") {
+            enterScore.classList.remove("blank");
+        }
     }
 })(Memory || (Memory = {}));
 //# sourceMappingURL=scoreScript.js.map
