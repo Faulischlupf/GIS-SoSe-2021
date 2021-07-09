@@ -1,6 +1,76 @@
-.blank {
-    display: none !important ;
+/*System*/
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+.blank {
+    display: none !important;
+}
+
+/*General*/
+
+#generalBackground {
+    margin: auto;
+    background-repeat: no-repeat;
+    background-color: rgba(4, 4, 6, 255);
+    background-image: url(Pictures/MemoryBackgroundII_v2.jpg);
+    background-size: 100%;
+    max-height: 100%;
+}
+
+.backButtons {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 5px;
+    margin: 5px;
+    width: 60px;
+    font-size: 90%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
+/*Index*/
+
+#indexHeader {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding-top: 14%;
+}
+
+h1 {
+    color: #dedf87;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 530%;
+    margin-bottom: 5px;
+    /*from https://css-tricks.com/adding-stroke-to-web-text/*/
+    text-shadow: 3px 2px black;
+}
+
+#indexButtons {
+    display: flex;
+    justify-content: center;
+}
+
+.indexButtons {
+    background-color: #dedf87;
+    color: black;
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 5px;
+    font-size: 130%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
+/*Memory*/
 
 #memory {
     flex-flow: row wrap;
@@ -10,4 +80,80 @@
 #memory img {
     flex-flow: row;
     max-width: 200px;
+    max-height: 200px;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    padding-top: 17%;
+}
+
+.memoryButtons {
+    background-color: #dedf87;
+    color: black;
+    width: 250px;
+    height: 75px;
+    border-radius: 16px;
+    margin: 5px;
+    font-size: 200%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
+/*Score*/
+
+#scoreHeader {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-top: 2%;
+}
+
+#showScore {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}
+
+table {
+    margin: 1%;
+    color: #b5afcc;
+}
+
+th {
+    border-bottom: 1px solid #090a0f;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+td {
+    padding: 5px;
+    text-align: center;
+    font-weight: 100;
+}
+
+#newGame {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.newGame {
+    background-color: #dedf87;
+    color: black;
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 5px;
+    font-size: 130%;
+}
+
+/*Admin*/
+
+#adminBackground {
+    background-color: rgba(38, 80, 105, 255);
 }

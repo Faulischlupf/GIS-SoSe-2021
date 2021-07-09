@@ -15,9 +15,6 @@ var Memory;
         memoryDiv.classList.remove("blank");
         timer.classList.add("blank");
         setInterval(timerCount, 1000);
-        /*while (scoreCounter <= 8) {
-            
-        }*/
     }
     function timerCount() {
         timeCounter += 1;
@@ -47,7 +44,7 @@ var Memory;
                 picture.classList.add("blank");
                 memoryCard.appendChild(picture);
                 let back = document.createElement("img");
-                back.setAttribute("src", "./MarieGoldFish.png");
+                back.setAttribute("src", "./Pictures/cryptid-creations.png");
                 memoryCard.appendChild(back);
                 back.addEventListener("click", handelButtonClickFlipp);
                 function handelButtonClickFlipp(_event) {

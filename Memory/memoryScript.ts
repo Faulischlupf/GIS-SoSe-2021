@@ -19,10 +19,6 @@ namespace Memory {
         timer.classList.add("blank");
         setInterval(timerCount, 1000);
 
-        /*while (scoreCounter <= 8) {
-            
-        }*/
-
     }
     function timerCount(): void {
         timeCounter += 1;
@@ -58,7 +54,7 @@ namespace Memory {
                 memoryCard.appendChild(picture);
 
                 let back: HTMLImageElement = document.createElement("img");
-                back.setAttribute("src", "./MarieGoldFish.png");
+                back.setAttribute("src", "./Pictures/cryptid-creations.png");
                 memoryCard.appendChild(back);
 
                 back.addEventListener("click", handelButtonClickFlipp);

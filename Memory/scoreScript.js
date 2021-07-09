@@ -33,7 +33,7 @@ var Memory;
         tableHead.appendChild(theadScore);
         theadNumber.innerText = "Position";
         theadName.innerText = "Name";
-        theadScore.innerText = "Time";
+        theadScore.innerText = "Time in Seconds";
         for (let i = 0; i < responseString.length; i++) {
             let score = document.createElement("tr");
             scoreTable.appendChild(score);
