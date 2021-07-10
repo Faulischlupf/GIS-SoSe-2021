@@ -44,6 +44,7 @@ var Memory;
                 picture.classList.add("blank");
                 memoryCard.appendChild(picture);
                 let back = document.createElement("img");
+                back.classList.add("back");
                 back.setAttribute("src", "./Pictures/cryptid-creations.png");
                 memoryCard.appendChild(back);
                 back.addEventListener("click", handelButtonClickFlipp);

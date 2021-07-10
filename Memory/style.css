@@ -26,8 +26,9 @@
     color: black;
     border-radius: 5px;
     margin: 5px;
-    width: 60px;
-    font-size: 90%;
+    width: 80px;
+    height: 25px;
+    font-size: 100%;
     border-width: 0px;
     box-shadow: 4px 3px black;
 }
@@ -41,7 +42,7 @@
     padding-top: 14%;
 }
 
-h1 {
+#indexHeader h1 {
     color: #dedf87;
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;
@@ -49,7 +50,6 @@ h1 {
     text-decoration: none;
     font-size: 530%;
     margin-bottom: 5px;
-    /*from https://css-tricks.com/adding-stroke-to-web-text/*/
     text-shadow: 3px 2px black;
 }
 
@@ -75,12 +75,26 @@ h1 {
 #memory {
     flex-flow: row wrap;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #memory img {
-    flex-flow: row;
-    max-width: 200px;
-    max-height: 200px;
+    margin: 10px;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#memory div {
+    width: 11%;
+    height: 11%;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
 }
 
 #timer {
@@ -117,6 +131,17 @@ h1 {
     width: auto;
 }
 
+#scoreHeader h1 {
+    color: #dedf87;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 530%;
+    margin-bottom: 5px;
+    text-shadow: 3px 2px black;
+}
+
 table {
     margin: 1%;
     color: #b5afcc;
@@ -150,10 +175,257 @@ td {
     border-radius: 8px;
     margin: 5px;
     font-size: 130%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
+#enterScore {
+    display: column flex;
+    justify-content: center;
+}
+
+#inputRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#enterScore label {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 110%;
+    border-width: 0px;
+    padding: 3px;
+    height: 24px;
+}
+
+#enterScore input {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 110%;
+    border-width: 0px;
+    height: 30px;
+}
+
+#buttonRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#enterScore button {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 8px;
+    margin: 9px;
+    font-size: 130%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+    width: 220px;
+    height: 50px;
 }
 
 /*Admin*/
 
+#adminForm {
+    flex-flow: row wrap;
+    display: flex;
+}
+
+#adminForm label {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 110%;
+    border-width: 0px;
+    padding: 3px;
+}
+
+#adminForm input {
+    background-color: #dedf87;
+    color: black;
+    border-radius: 3px;
+    margin: 5px;
+    font-size: 110%;
+    border-width: 0px;
+}
+
+#adminForm button {
+    background-color: #dedf87;
+    color: black;
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 5px;
+    font-size: 130%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
 #adminBackground {
     background-color: rgba(38, 80, 105, 255);
+}
+
+#showPictures {
+    flex-flow: column wrap;
+    display: flex;
+}
+
+#showPictures .pictureWrap {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+#showPictures img {
+    max-width: 300px;
+}
+
+.deleteButton {
+    background-color: #dedf87;
+    color: black;
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 5px;
+    font-size: 130%;
+    border-width: 0px;
+    box-shadow: 4px 3px black;
+}
+
+/*MediaQuery*/
+
+@media screen and (max-width:1380px) {
+    #showScore table {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    /*General*/
+    #generalBackground {
+        background-image: url(Pictures/MemoryBackground_Tablet_II.jpg);
+    }
+    .backButtons {
+        width: 20%;
+        height: 50px;
+        border-radius: 12px;
+        font-size: 200%;
+        box-shadow: 8px 6px black;
+    }
+    /*index*/
+    #indexHeader {
+        padding-top: 14%;
+    }
+    #indexHeader h1 {
+        font-size: 980%;
+        text-shadow: 6px 4px black;
+    }
+    #indexButtons {
+        align-items: center;
+        flex-flow: column nowrap;
+    }
+    .indexButtons {
+        width: 300px;
+        height: 70px;
+        font-size: 230%;
+        box-shadow: 8px 6px black;
+        margin: 15px;
+    }
+    /*Memory*/
+    #timer {
+        padding-top: 29%;
+    }
+    .memoryButtons {
+        width: 35%;
+        height: 85px;
+        font-size: 280%;
+        box-shadow: 8px 6px black;
+    }
+    /*Score*/
+    #scoreHeader h1 {
+        font-size: 980%;
+        text-shadow: 8px 6px black;
+    }
+    #showScore table {
+        width: 80%;
+        height: 755px;
+        font-size: 35px;
+    }
+    #newGame {
+        padding-top: 20px;
+    }
+    .newGame {
+        width: 300px;
+        height: 90px;
+        font-size: 260%;
+        box-shadow: 8px 6px black;
+    }
+}
+
+@media screen and (max-width:640px) {
+    /*General*/
+    #generalBackground {
+        background-image: url(Pictures/MemoryBackground_Smartphone.jpg);
+    }
+    .backButtons {
+        width: 70px;
+        height: 25px;
+        font-size: 100%;
+        border-radius: 8px;
+        box-shadow: 4px 3px black;
+    }
+    /*index*/
+    #indexHeader {
+        padding-top: 10%;
+    }
+    #indexHeader h1 {
+        font-size: 430%;
+        text-shadow: 3px 2px black;
+    }
+    #indexButtons {
+        align-items: center;
+        flex-flow: column nowrap;
+    }
+    .indexButtons {
+        width: 110px;
+        height: 50px;
+        font-size: 130%;
+        margin: 5px;
+        box-shadow: 4px 3px black;
+    }
+    /*Memory*/
+    #timer {
+        padding-top: 35%;
+    }
+    .memoryButtons {
+        width: 35%;
+        height: 55px;
+        font-size: 180%;
+        box-shadow: 4px 3px black;
+    }
+    /*Score*/
+    #scoreHeader h1 {
+        font-size: 430%;
+        text-shadow: 3px 2px black;
+    }
+    #showScore table {
+        width: 20%;
+        height: 400px;
+        font-size: 15px;
+    }
+    #newGame {
+        padding-top: 20px;
+    }
+    .newGame {
+        width: 150px;
+        height: 50px;
+        font-size: 130%;
+        box-shadow: 4px 3px black;
+    }
 }

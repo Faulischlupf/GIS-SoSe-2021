@@ -54,6 +54,7 @@ namespace Memory {
                 memoryCard.appendChild(picture);
 
                 let back: HTMLImageElement = document.createElement("img");
+                back.classList.add("back");
                 back.setAttribute("src", "./Pictures/cryptid-creations.png");
                 memoryCard.appendChild(back);
 

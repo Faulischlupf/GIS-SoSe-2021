@@ -14,7 +14,7 @@ namespace Memory {
         //url = "https://gis2021.herokuapp.com";
         url = "http://localhost:8100";
     }
-    
+
     async function handelButtonClickSubmitPicture(): Promise<void> {
         urlFunction();
         console.log("Submited");
@@ -33,7 +33,7 @@ namespace Memory {
 
 
     }
-    
+
     async function loadPictures(): Promise<void> {
         showPicture.innerHTML = "";
         urlFunction();
@@ -42,14 +42,18 @@ namespace Memory {
         let serverResponse: Response = await fetch(url);
         let responseString: Pictures[] = await serverResponse.json();
         for (let i: number = 0; i < responseString.length; i++) {
+            let pictureWrap: HTMLDivElement = document.createElement("div");
+            pictureWrap.classList.add("pictureWrap");
+            showPicture.appendChild(pictureWrap);
             let picture: HTMLImageElement = document.createElement("img");
             picture.setAttribute("src", responseString[i].picture);
-            showPicture.appendChild(picture);
+            pictureWrap.appendChild(picture);
             console.log(responseString[i].picture);
             let deletePicture: HTMLButtonElement = document.createElement("button");
             deletePicture.setAttribute("type", "button");
+            deletePicture.classList.add("deleteButton");
             deletePicture.innerHTML = "Delete Picture";
-            showPicture.appendChild(deletePicture);
+            pictureWrap.appendChild(deletePicture);
 
             deletePicture.addEventListener("click", handelButtonClickDelete);
 

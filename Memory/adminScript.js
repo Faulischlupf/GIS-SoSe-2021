@@ -31,14 +31,18 @@ var Memory;
         let serverResponse = await fetch(url);
         let responseString = await serverResponse.json();
         for (let i = 0; i < responseString.length; i++) {
+            let pictureWrap = document.createElement("div");
+            pictureWrap.classList.add("pictureWrap");
+            showPicture.appendChild(pictureWrap);
             let picture = document.createElement("img");
             picture.setAttribute("src", responseString[i].picture);
-            showPicture.appendChild(picture);
+            pictureWrap.appendChild(picture);
             console.log(responseString[i].picture);
             let deletePicture = document.createElement("button");
             deletePicture.setAttribute("type", "button");
+            deletePicture.classList.add("deleteButton");
             deletePicture.innerHTML = "Delete Picture";
-            showPicture.appendChild(deletePicture);
+            pictureWrap.appendChild(deletePicture);
             deletePicture.addEventListener("click", handelButtonClickDelete);
             async function handelButtonClickDelete() {
                 urlFunction();

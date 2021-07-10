@@ -44,7 +44,7 @@ namespace Memory {
         theadName.innerText = "Name";
         theadScore.innerText = "Time in Seconds";
 
-        for (let i: number = 0; i < responseString.length; i++) {
+        for (let i: number = 0; i < 10; i++) {
             let score: HTMLTableRowElement = document.createElement("tr");
             scoreTable.appendChild(score);
             let tableNumber: HTMLTableCellElement = document.createElement("td");
