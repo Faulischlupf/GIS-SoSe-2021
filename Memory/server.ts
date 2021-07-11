@@ -13,8 +13,8 @@ export namespace Memory {
     if (!port)
         port = 8100;
 
-    let databaseUrl: string = "mongodb://localhost:27017";
-    //let databaseUrl: string = "mongodb+srv://Roell:PnXI1DRwzEe4Qgli@gissose2021.enldi.mongodb.net";
+    //let databaseUrl: string = "mongodb://localhost:27017";
+    let databaseUrl: string = "mongodb+srv://Roell:PnXI1DRwzEe4Qgli@gissose2021.enldi.mongodb.net";
 
     startServer(port);
     connectToDatabase(databaseUrl);

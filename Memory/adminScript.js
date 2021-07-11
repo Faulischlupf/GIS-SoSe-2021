@@ -7,8 +7,8 @@ var Memory;
     let url;
     let showPicture = document.getElementById("showPictures");
     function urlFunction() {
-        //url = "https://gis2021.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://gis2021.herokuapp.com";
+        //url = "http://localhost:8100";
     }
     async function handelButtonClickSubmitPicture() {
         urlFunction();

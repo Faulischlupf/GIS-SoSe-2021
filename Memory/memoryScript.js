@@ -22,8 +22,8 @@ var Memory;
         console.log(timeCounter);
     }
     function urlFunction() {
-        //url = "https://gis2021.herokuapp.com";
-        url = "http://localhost:8100";
+        url = "https://gis2021.herokuapp.com";
+        //url = "http://localhost:8100";
     }
     async function loadPictures() {
         memoryDiv.innerHTML = "";
